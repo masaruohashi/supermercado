@@ -46,4 +46,8 @@ public class Product {
   public void setProvider(Provider provider) {
     this.provider = provider;
   }
+
+  public String getFormattedPrice() {
+    return String.format("%.2f", this.getPrice());
+  }
 }

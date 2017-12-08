@@ -1,16 +1,23 @@
 package com.supermercado.models;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Order {
   private int id;
-  private String paymentType;
-  private String deliveryType;
+  private String paymentMethod;
+  private String deliveryMethod;
   private String status;
   private Date date;
   private Client client;
   private Seller seller;
   private Store store;
+  private List<OrderItem> items;
+
+  public Order() {
+    items = new ArrayList<OrderItem>();
+  }
 
   public int getId() {
     return id;
@@ -20,20 +27,20 @@ public class Order {
     this.id = id;
   }
 
-  public String getPaymentType() {
-    return paymentType;
+  public String getPaymentMethod() {
+    return paymentMethod;
   }
 
-  public void setPaymentType(String paymentType) {
-    this.paymentType = paymentType;
+  public void setPaymentMethod(String paymentMethod) {
+    this.paymentMethod = paymentMethod;
   }
 
-  public String getDeliveryType() {
-    return deliveryType;
+  public String getDeliveryMethod() {
+    return deliveryMethod;
   }
 
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public void setDeliveryMethod(String deliveryMethod) {
+    this.deliveryMethod = deliveryMethod;
   }
 
   public String getStatus() {
@@ -74,5 +81,16 @@ public class Order {
 
   public void setStore(Store store) {
     this.store = store;
+  }
+
+  public void addItem(Product product, int quantity) {
+    OrderItem item = new OrderItem();
+    item.setProduct(product);
+    item.setQuantity(quantity);
+    items.add(item);
+  }
+
+  public List<OrderItem> getItems() {
+    return items;
   }
 }

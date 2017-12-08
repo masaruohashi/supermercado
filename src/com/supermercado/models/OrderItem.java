@@ -3,7 +3,6 @@ package com.supermercado.models;
 public class OrderItem {
   private int id;
   private int quantity;
-  private Order order;
   private Product product;
 
   public int getId() {
@@ -20,14 +19,6 @@ public class OrderItem {
 
   public void setQuantity(int quantity) {
     this.quantity = quantity;
-  }
-
-  public Order getOrder() {
-    return order;
-  }
-
-  public void setOrder(Order order) {
-    this.order = order;
   }
 
   public Product getProduct() {
