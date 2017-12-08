@@ -15,6 +15,7 @@ This section helps to install and configure the project
 *  Open the Eclipse IDE and create a new `Dynamic Web Project`
 *  Set the project folder to be where you cloned the repository
 *  On `Servers` add the project to the `Tomcat` resources
+*  Convert to a Maven project
 *  Build the project and run on server
 
 ### Authors
