@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>OrdersNewServlet</display-name>
+    <servlet-name>OrdersNewServlet</servlet-name>
+    <servlet-class>com.supermercado.servlets.OrdersNewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrdersNewServlet</servlet-name>
+    <url-pattern>/OrdersNewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

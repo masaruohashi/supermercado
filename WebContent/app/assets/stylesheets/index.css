@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "Gravedigger";
+  src: url('../fonts/gravedigger.otf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F8F8FF;
+}
+
+header {
+  width: 100%;
+  height: 10vh;
+  background-color: rgb(47, 61, 79);
+  display: table;
+  box-shadow: 0px 5px 10px #888888;
+}
+
+.logo {
+  color: rgb(248, 244, 244);
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Gravedigger";
+  text-shadow: 5px 5px 5px #555555;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 3em;
+}
+
+nav {
+  margin: 0 auto;
+  padding: 2% 20%;
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(33, 102, 119);
+  border-radius: 0 0 5px 5px;
+}
+
+.nav-item {
+  float: left;
+  padding: 14px 16px;
+  text-align: center;
+  color: white;
+}
+
+.nav-item > a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-item:hover {
+  background-color: rgb(44, 141, 163);
+  color: green;
+  transition: 0.20s;
+}
+
+.nav-list .active {
+  background-color: rgb(51, 165, 190);
+}
+
+.nav-end-request {
+  float: right;
+  padding: 14px 16px;
+  background-color: rgb(2, 53, 80);
+}
+
+.nav-end-request > a {
+  text-decoration: none;
+  color: white;
+}
+
+.content {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  padding: 2%;
+  background-color: white;
+  display: table;
+}
+
+.content-header {
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 1600px) {
+  nav {
+    padding: 2% 10%;
+  }
+
+  .content {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  nav {
+    padding: 2% 5%;
+  }
+
+  .content {
+    width: 80%;
+  }
+}
