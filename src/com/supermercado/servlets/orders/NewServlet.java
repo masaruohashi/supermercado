@@ -1,4 +1,4 @@
-package com.supermercado.servlets;
+package com.supermercado.servlets.orders;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,10 +24,10 @@ import com.supermercado.models.Seller;
 import com.supermercado.models.Store;
 
 @WebServlet("/pedido")
-public class OrdersNewServlet extends HttpServlet {
+public class NewServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  public OrdersNewServlet() {
+  public NewServlet() {
     super();
   }
 

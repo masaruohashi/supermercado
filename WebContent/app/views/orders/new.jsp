@@ -24,6 +24,13 @@
   <nav>
     <ul class="nav-list">
       <li class="nav-item active"><a href="#">Novo Pedido</a></li>
+      <li class="nav-item"><a href="#">Cliente</a></li>
+      <li class="nav-item"><a href="#">Vendedor</a></li>
+      <li class="nav-item"><a href="#">Produto</a></li>
+      <li class="nav-item"><a href="#">Loja</a></li>
+      <li class="nav-item"><a href="#">Categoria</a></li>
+      <li class="nav-item"><a href="#">Fornecedores</a></li>
+      <li class="nav-item"><a href="#">Pedido</a></li>
     </ul>
   </nav>
   <div class="content">
