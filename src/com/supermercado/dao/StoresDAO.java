@@ -17,7 +17,7 @@ public class StoresDAO extends BaseDAO{
     return new StoresDAO();
   }
 
-  public List<Store> getAll() throws SQLException {
+  public List<Store> getAll() {
     List<Store> stores = new ArrayList<Store>();
     try {
       String sql = "SELECT * from stores";
@@ -38,7 +38,7 @@ public class StoresDAO extends BaseDAO{
     return stores;
   }
 
-  public Store findById(int id) throws SQLException {
+  public Store findById(int id) {
     Store store = null;
     try {
       String sql = "SELECT * FROM stores WHERE id=?";

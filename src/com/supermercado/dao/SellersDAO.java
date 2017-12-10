@@ -17,7 +17,7 @@ public class SellersDAO extends BaseDAO{
     return new SellersDAO();
   }
 
-  public List<Seller> getAll() throws SQLException {
+  public List<Seller> getAll() {
     List<Seller> sellers = new ArrayList<Seller>();
     try {
       String sql = "SELECT * FROM sellers";
@@ -38,7 +38,7 @@ public class SellersDAO extends BaseDAO{
     return sellers;
   }
 
-  public Seller findById(int id) throws SQLException {
+  public Seller findById(int id) {
     Seller seller = null;
     try {
       String sql = "SELECT * FROM sellers WHERE id=?";

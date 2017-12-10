@@ -36,20 +36,16 @@ public class NewServlet extends HttpServlet {
     List<Client> clients = null;
     List<Seller> sellers = null;
     List<Store> stores = null;
-    try {
-      products = ProductsDAO.getInstance().getAll();
-      clients = ClientsDAO.getInstance().getAll();
-      sellers = SellersDAO.getInstance().getAll();
-      stores = StoresDAO.getInstance().getAll();
-      request.setAttribute("products", products);
-      request.setAttribute("clients", clients);
-      request.setAttribute("sellers", sellers);
-      request.setAttribute("stores", stores);
-      RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/orders/new.jsp");
-      requestDispatcher.forward(request, response);
-    } catch(SQLException e) {
-      e.printStackTrace();
-    }
+    products = ProductsDAO.getInstance().getAll();
+    clients = ClientsDAO.getInstance().getAll();
+    sellers = SellersDAO.getInstance().getAll();
+    stores = StoresDAO.getInstance().getAll();
+    request.setAttribute("products", products);
+    request.setAttribute("clients", clients);
+    request.setAttribute("sellers", sellers);
+    request.setAttribute("stores", stores);
+    RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/orders/new.jsp");
+    requestDispatcher.forward(request, response);
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -81,8 +77,6 @@ public class NewServlet extends HttpServlet {
       }
       doGet(request, response);
     } catch (NumberFormatException e) {
-      e.printStackTrace();
-    } catch (SQLException e) {
       e.printStackTrace();
     }
   }

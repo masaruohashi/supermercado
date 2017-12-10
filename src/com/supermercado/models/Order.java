@@ -90,6 +90,10 @@ public class Order {
     items.add(item);
   }
 
+  public void setItems(List<OrderItem> items) {
+    this.items = items;
+  }
+
   public List<OrderItem> getItems() {
     return items;
   }
