@@ -21,10 +21,10 @@ import com.supermercado.models.Seller;
 import com.supermercado.models.Store;
 
 @WebServlet("/clientes")
-public class clientsController extends HttpServlet {
+public class ClientsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public clientsController() {
+    public ClientsServlet() {
         super();
     }
 
@@ -32,31 +32,23 @@ public class clientsController extends HttpServlet {
 		String action = request.getParameter("acao");
 	    List<Client> clients = null;
 	    if(action == null) {
-			try {
-			      clients = ClientsDAO.getInstance().getAll();
-			      request.setAttribute("clients", clients);
-			      RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/listar.jsp");
-			      requestDispatcher.forward(request, response);
-			    } catch(SQLException e) {
-			      e.printStackTrace();
-			    }
+	      clients = ClientsDAO.getInstance().getAll();
+	      request.setAttribute("clients", clients);
+	      RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/list.jsp");
+	      requestDispatcher.forward(request, response);			 
 		}
 	    else if(action.equals("adicionar")) {		
-			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/cadastrar.jsp");
+			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/form.jsp");
 		    requestDispatcher.forward(request, response);
 		}
 		else if(action.equals("atualizar")) {
 			int id = Integer.parseInt(request.getParameter("id"));
 			Client client = null;
-			try {
-				client = ClientsDAO.getInstance().findById(id);
-				request.setAttribute("id", id);
-				request.setAttribute("client", client);
-				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/cadastrar.jsp");
-			    requestDispatcher.forward(request, response);
-			} catch(SQLException e) {
-			      e.printStackTrace();
-			}
+			client = ClientsDAO.getInstance().findById(id);
+			request.setAttribute("id", id);
+			request.setAttribute("client", client);
+			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/form.jsp");
+		    requestDispatcher.forward(request, response);				
 		}
 		else if(action.equals("excluir")) {
 			int id = Integer.parseInt(request.getParameter("id"));
@@ -64,7 +56,7 @@ public class clientsController extends HttpServlet {
 				ClientsDAO.getInstance().delete(id);
 				clients = ClientsDAO.getInstance().getAll();
 			    request.setAttribute("clients", clients);
-				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/listar.jsp");
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/list.jsp");
 			    requestDispatcher.forward(request, response);
 			} catch(SQLException e) {
 			      e.printStackTrace();
@@ -84,7 +76,7 @@ public class clientsController extends HttpServlet {
 				ClientsDAO.getInstance().add(new Client(name, cpf, address));
 				clients = ClientsDAO.getInstance().getAll();
 			    request.setAttribute("clients", clients);
-				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/listar.jsp");
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/list.jsp");
 			    requestDispatcher.forward(request, response);
 			} catch(SQLException e) {
 				e.printStackTrace();
@@ -99,7 +91,7 @@ public class clientsController extends HttpServlet {
 				ClientsDAO.getInstance().update(new Client(id, name, cpf, address));
 				clients = ClientsDAO.getInstance().getAll();
 			    request.setAttribute("clients", clients);
-				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/listar.jsp");
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/clients/list.jsp");
 			    requestDispatcher.forward(request, response);
 			} catch(SQLException e) {
 				e.printStackTrace();
