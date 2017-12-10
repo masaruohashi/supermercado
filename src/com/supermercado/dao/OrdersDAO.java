@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.supermercado.models.Order;
 import com.supermercado.models.OrderItem;
@@ -34,12 +36,7 @@ public class OrdersDAO extends BaseDAO{
       result.next();
       int orderId = result.getInt(1);
       for(OrderItem item : order.getItems()) {
-        sql = "INSERT INTO order_items (quantity, order_id, product_id) VALUES (?, ?, ?)";
-        statement = this.connection.prepareStatement(sql);
-        statement.setInt(1, item.getQuantity());
-        statement.setInt(2, orderId);
-        statement.setInt(3, item.getProduct().getId());
-        statement.execute();
+        OrderItemDAO.getInstance().create(item, orderId);
       }
       statement.close();
       return true;
@@ -47,5 +44,55 @@ public class OrdersDAO extends BaseDAO{
       e.printStackTrace();
     }
     return false;
+  }
+
+  public List<Order> findAll() {
+    List<Order> orders = null;
+    String sql = "SELECT * FROM orders ORDER BY date";
+    try {
+      orders = new ArrayList<Order>();
+      PreparedStatement statement = this.connection.prepareStatement(sql);
+      ResultSet result = statement.executeQuery();
+      while(result.next()) {
+        Order order = new Order();
+        order.setId(result.getInt("id"));
+        order.setPaymentMethod(result.getString("payment_method"));
+        order.setDeliveryMethod(result.getString("delivery_method"));
+        order.setStatus(result.getString("status"));
+        order.setDate(result.getDate("date"));
+        order.setClient(ClientsDAO.getInstance().findById(result.getInt("client_id")));
+        order.setSeller(SellersDAO.getInstance().findById(result.getInt("seller_id")));
+        order.setStore(StoresDAO.getInstance().findById(result.getInt("store_id")));
+        orders.add(order);
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return orders;
+  }
+
+  public Order findById(int id) {
+    Order order = null;
+    String sql = "SELECT * FROM orders WHERE id = ?";
+    try {
+      PreparedStatement statement = this.connection.prepareStatement(sql);
+      statement.setInt(1, id);
+      ResultSet result = statement.executeQuery();
+      if(result.next()) {
+        order = new Order();
+        order.setId(id);
+        order.setPaymentMethod(result.getString("payment_method"));
+        order.setDeliveryMethod(result.getString("delivery_method"));
+        order.setStatus(result.getString("status"));
+        order.setDate(result.getDate("date"));
+        order.setClient(ClientsDAO.getInstance().findById(result.getInt("client_id")));
+        order.setSeller(SellersDAO.getInstance().findById(result.getInt("seller_id")));
+        order.setStore(StoresDAO.getInstance().findById(result.getInt("store_id")));
+        order.setItems(OrderItemDAO.getInstance().findByOrderId(id));
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return order;
   }
 }
