@@ -9,7 +9,7 @@ public class ConnectionFactory {
     Connection connection = null;
     try {
       Class.forName("com.mysql.jdbc.Driver");
-      connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", "root", "");
+      connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", "root", "960403");
     } catch (SQLException | ClassNotFoundException e) {
       e.printStackTrace();
     }

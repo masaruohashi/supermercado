@@ -95,6 +95,10 @@ nav {
   font-size: 1.5em;
 }
 
+.hidden{
+	visibility: hidden;
+}
+
 @media only screen and (max-width: 1600px) {
   nav {
     padding: 2% 10%;
