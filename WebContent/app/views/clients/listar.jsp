@@ -70,12 +70,12 @@
                         <td><%= client.getAddress() %></td>
                         <td>
                         	<a href="${pageContext.request.contextPath}/clientes?acao=atualizar&id=<%= client.getId() %>">
-								<img src="${pageContext.request.contextPath}/app/assets/img/atualizar.png"/>
+								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 							</a>
                         </td>
                         <td>
                         	<a href="${pageContext.request.contextPath}/clientes?acao=excluir&id=<%= client.getId() %>">
-								<img src="${pageContext.request.contextPath}/assets/img/excluir.png"/>
+								<img class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 							</a>
                         </td>    
                       </tr>
