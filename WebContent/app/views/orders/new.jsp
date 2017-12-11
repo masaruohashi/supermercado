@@ -30,7 +30,7 @@
       <li class="nav-item"><a href="#">Loja</a></li>
       <li class="nav-item"><a href="#">Categoria</a></li>
       <li class="nav-item"><a href="#">Fornecedores</a></li>
-      <li class="nav-item"><a href="#">Pedido</a></li>
+      <li class="nav-item"><a href="pedidos">Pedido</a></li>
     </ul>
   </nav>
   <div class="content">
