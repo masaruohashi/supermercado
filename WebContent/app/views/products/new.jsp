@@ -29,7 +29,7 @@
         <li class="nav-item"><a href="#">Vendedor</a></li>
         <li class="nav-item active"><a href="/produto">Produtos</a></li>
         <li class="nav-item"><a href="#">Loja</a></li>
-        <li class="nav-item"><a href="/categorias">Categorias</a></li>
+        <li class="nav-item"><a href="/categoria">Categorias</a></li>
         <li class="nav-item"><a href="#">Fornecedores</a></li>
         <li class="nav-item"><a href="#">Pedido</a></li>
     </ul>

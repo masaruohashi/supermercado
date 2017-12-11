@@ -31,7 +31,7 @@
     </ul>
 </nav>
 <div class="content">
-    <span class="content-header">Categorias</span>
+    <span class="content-header">Produtos</span>
     <hr class="content-line" />
     <div class="col-sm-12">
         <a href="/produto/novo" class="form-button btn btn-primary pull-right">Criar produto</a>
