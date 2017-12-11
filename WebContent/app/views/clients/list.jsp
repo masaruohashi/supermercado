@@ -69,13 +69,13 @@
                         <td><%= client.getCpf() %></td>
                         <td><%= client.getAddress() %></td>
                         <td>
-                        	<a href="${pageContext.request.contextPath}/clientes?acao=atualizar&id=<%= client.getId() %>">
-								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        	<a class="table-button" href="${pageContext.request.contextPath}/clientes?acao=atualizar&id=<%= client.getId() %>">
+								<i class="fa fa-repeat" aria-hidden="true"></i>
 							</a>
                         </td>
                         <td>
-                        	<a href="${pageContext.request.contextPath}/clientes?acao=excluir&id=<%= client.getId() %>">
-								<img class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        	<a class="table-button" href="${pageContext.request.contextPath}/clientes?acao=excluir&id=<%= client.getId() %>">
+								<i class="fa fa-times" aria-hidden="true"></i>
 							</a>
                         </td>    
                       </tr>
@@ -90,68 +90,5 @@
       </div>
     </div>
   </div>
-  <% if(request.getAttribute("message") != null) { %>
-    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="messageModalLabel">Mensagem</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= request.getAttribute("message") %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>$('#messageModal').modal({show: true})</script>
-  <% } %>
-  <script>
-    function atualizar(id){
-    	$("#idbox").val(id);
-    	$("#action").val("atualizar");
-    	$("#client-form").submit();
-    }
-    function excluir(id) {
-    	$("#idbox").val(id);
-    	$("#action").val("excluir");
-    	$("#client-form").submit();
-    }
-    $(document).ready(function() {        
-    	$(".js-select-all").click(function() {
-        if($(this).is(":checked")) {
-          $(".js-client-checkbox").prop('checked', true);
-        }
-        else {
-          $(".js-client-checkbox").prop('checked', false);
-        }
-      });
-
-      $(".js-send-user-seller").click(function() {
-        $(".js-user-seller").addClass("hidden");
-        $(".js-products").removeClass("hidden");
-      });
-
-      $(".js-send-products").click(function() {
-          $(".js-products").addClass("hidden");
-          $(".js-payment-information").removeClass("hidden");
-        });
-
-      $(".js-products-back").click(function() {
-        $(".js-products").addClass("hidden");
-        $(".js-user-seller").removeClass("hidden");
-      });
-
-      $(".js-payment-back").click(function() {
-          $(".js-payment-information").addClass("hidden");
-          $(".js-products").removeClass("hidden");
-        });
-    });
-  </script>
 </body>
 </html>

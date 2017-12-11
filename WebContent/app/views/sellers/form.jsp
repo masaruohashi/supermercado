@@ -66,7 +66,9 @@
                 <input class="hidden" type="text" name="operation" value="update"/>
               </div>
               <% } %>
-              
+            </div>
+            <br>
+            <div class="row">            
               <div class="col-sm-5 col-sm-offset-7">
                   <div class="col-sm-6 pull-right">          
                     <input class="btn btn-primary pull-right" type="submit" value="Salvar" />

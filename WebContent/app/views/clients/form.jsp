@@ -74,7 +74,9 @@
                 <input class="hidden" type="text" name="operation" value="update"/>
               </div>
               <% } %>
-              
+            </div>
+            <br>
+            <div class="row">
               <div class="col-sm-5 col-sm-offset-7">
                   <div class="col-sm-6 pull-right">          
                     <input class="btn btn-primary pull-right" type="submit" value="Salvar" />
@@ -85,41 +87,6 @@
         </div>
       </div>
     </div>
-  </div>
-      <%--
-    <script>$('#messageModal').modal({show: true})</script>
-  <% } %>
-  <script>
-    $(document).ready(function() {
-      $(".js-select-all").click(function() {
-        if($(this).is(":checked")) {
-          $(".js-client-checkbox").prop('checked', true);
-        }
-        else {
-          $(".js-client-checkbox").prop('checked', false);
-        }
-      });
-
-      $(".js-send-user-seller").click(function() {
-        $(".js-user-seller").addClass("hidden");
-        $(".js-products").removeClass("hidden");
-      });
-
-      $(".js-send-products").click(function() {
-          $(".js-products").addClass("hidden");
-          $(".js-payment-information").removeClass("hidden");
-        });
-
-      $(".js-products-back").click(function() {
-        $(".js-products").addClass("hidden");
-        $(".js-user-seller").removeClass("hidden");
-      });
-
-      $(".js-payment-back").click(function() {
-          $(".js-payment-information").addClass("hidden");
-          $(".js-products").removeClass("hidden");
-        });
-    });
-  </script>--%>
+  </div>     
 </body>
 </html>

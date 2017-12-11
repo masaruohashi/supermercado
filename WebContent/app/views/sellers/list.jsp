@@ -67,13 +67,13 @@
                         <td><%= seller.getName() %></td>
                         <td><%= seller.getCpf() %></td>
                         <td>
-                        	<a href="${pageContext.request.contextPath}/vendedores?acao=atualizar&id=<%= seller.getId() %>">
-								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        	<a class="table-button" href="${pageContext.request.contextPath}/vendedores?acao=atualizar&id=<%= seller.getId() %>">
+								<i class="fa fa-repeat" aria-hidden="true"></i>
 							</a>
                         </td>
                         <td>
-                        	<a href="${pageContext.request.contextPath}/vendedores?acao=excluir&id=<%= seller.getId() %>">
-								<img class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        	<a class="table-button" href="${pageContext.request.contextPath}/vendedores?acao=excluir&id=<%= seller.getId() %>">
+								<i class="fa fa-times" aria-hidden="true"></i>
 							</a>
                         </td>    
                       </tr>
