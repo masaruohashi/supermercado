@@ -79,7 +79,7 @@
                     </select>
                     <br>
                     <label for="name">Nome:</label>
-                    <input value=<%=selected_product.getName()%> class="form-control" type="text" id="name" name="name" />
+                    <input value="<%=selected_product.getName()%>"" class="form-control" type="text" id="name" name="name" />
                     <br>
                     <label for="price">Preço (R$):</label>
                     <input value=<%=selected_product.getFormattedPrice()%> class="money form-control" type="text" id="price" name="price" />

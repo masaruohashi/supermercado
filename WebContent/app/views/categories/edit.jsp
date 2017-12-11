@@ -37,7 +37,7 @@
             <form action="editar?id=<%=selected_category.getId()%>" method="POST" class="form-group">
                 <div class="col-sm-8 col-sm-offset-2 js-user-seller">
                     <label for="name">Nome:</label>
-                    <input value=<%=selected_category.getName()%> class="form-control" type="text" id="name" name="name" />
+                    <input value="<%=selected_category.getName()%>"" class="form-control" type="text" id="name" name="name" />
                     <br>
                     <div class="col-sm-12">
                         <input type="submit" value="Editar categoria" class="form-button btn btn-primary pull-right" />
