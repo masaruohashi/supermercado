@@ -41,6 +41,7 @@
                     <br>
                     <div class="col-sm-12">
                         <input type="submit" value="Editar categoria" class="form-button btn btn-primary pull-right" />
+                        <a href="/categoria" class="btn btn-warning pull-center">Cancelar</a>
                     </div>
                 </div>
             </form>

@@ -33,6 +33,9 @@
 <div class="content">
     <span class="content-header">Categorias</span>
     <hr class="content-line" />
+    <div class="col-sm-12">
+        <a href="/produto/novo" class="form-button btn btn-primary pull-right">Criar produto</a>
+    </div>
     <div class="products">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 js-user-seller">
@@ -64,9 +67,6 @@
                     <br>
                     </tbody>
                 </table>
-                <div class="col-sm-12">
-                    <a href="/produto/novo" class="form-button btn btn-primary pull-right">Criar produto</a>
-                </div>
             </div>
         </div>
     </div>

@@ -86,6 +86,7 @@
                     <br>
                     <div class="col-sm-12">
                         <input type="submit" value="Editar produto" class="form-button btn btn-primary pull-right" />
+                        <a href="/produto" class="btn btn-warning pull-center">Cancelar</a>
                     </div>
                 </div>
             </form>
