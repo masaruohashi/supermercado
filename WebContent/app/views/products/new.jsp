@@ -1,4 +1,3 @@
-<%@page import="com.supermercado.models.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page import="com.supermercado.models.Category" %>
