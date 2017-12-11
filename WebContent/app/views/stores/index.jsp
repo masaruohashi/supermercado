@@ -24,16 +24,20 @@
       <li class="nav-item"><a href="#">Cliente</a></li>
       <li class="nav-item"><a href="#">Vendedor</a></li>
       <li class="nav-item"><a href="#">Produto</a></li>
-      <li class="nav-item"><a href="/supermercado/lojas/novo">Nova Loja</a></li>
       <li class="nav-item active"><a href="/supermercado/lojas">Loja</a></li>
       <li class="nav-item"><a href="#">Categoria</a></li>
-      <li class="nav-item"><a href="/supermercado/fornecedores/novo">Novo Fornecedor</a></li>
       <li class="nav-item"><a href="/supermercado/fornecedores">Fornecedor</a></li>
       <li class="nav-item"><a href="#">Pedido</a></li>
     </ul>
   </nav>
   <div class="content">
     <span class="content-header">Listagem de Lojas</span>
+    <div clas="col-sm-2">
+      <a class="btn btn-primary pull-right add-button" href="/supermercado/lojas/novo">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <span>Adicionar</span>
+      </a>
+    </div>
       <hr class="content-line" />
         <div class="content-table">
           <table class="table">

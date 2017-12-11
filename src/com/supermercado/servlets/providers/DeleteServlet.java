@@ -21,15 +21,11 @@ public class DeleteServlet extends HttpServlet {
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     int id = Integer.parseInt(request.getParameter("id"));
-    try {
-      if(ProvidersDAO.getInstance().delete(id)) {
-        response.sendRedirect(request.getContextPath() + "/fornecedores?msg=Fornecedor deletado com sucesso");
-      }
-      else {
-        response.sendRedirect(request.getContextPath() + "/fornecedores?msg=Falha ao deletar o fornecedor");
-      }
-    } catch (SQLException e) {
-    e.printStackTrace();
+    if(ProvidersDAO.getInstance().delete(id)) {
+      response.sendRedirect(request.getContextPath() + "/fornecedores?msg=Fornecedor deletado com sucesso");
+    }
+    else {
+      response.sendRedirect(request.getContextPath() + "/fornecedores?msg=Falha ao deletar o fornecedor");
     }
   }
 

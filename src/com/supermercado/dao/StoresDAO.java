@@ -59,7 +59,7 @@ public class StoresDAO extends BaseDAO{
     return store;
   }
   
-  public boolean create(Store store) throws SQLException {
+  public boolean create(Store store) {
     try {
       String sql = "INSERT INTO stores (name, address) " +
                    "VALUES (?, ?)";
@@ -75,7 +75,7 @@ public class StoresDAO extends BaseDAO{
     return false;
   }
   
-  public boolean delete(int id) throws SQLException {
+  public boolean delete(int id) {
     try {
       String sql = "DELETE FROM stores WHERE id = ?";
       PreparedStatement statement = this.connection.prepareStatement(sql);
@@ -89,7 +89,7 @@ public class StoresDAO extends BaseDAO{
     return false;
   }
   
-  public boolean update(Store store) throws SQLException {
+  public boolean update(Store store) {
     try {
       String sql = "UPDATE stores " +
                    "SET name = ?, address = ? " +

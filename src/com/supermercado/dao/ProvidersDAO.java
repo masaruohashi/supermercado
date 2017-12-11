@@ -17,7 +17,7 @@ public class ProvidersDAO extends BaseDAO {
     return new ProvidersDAO();
   }
   
-  public List<Provider> getAll() throws SQLException {
+  public List<Provider> getAll() {
     List<Provider> providers = new ArrayList<Provider>();
     try {
       String sql = "SELECT * from providers";
@@ -38,7 +38,7 @@ public class ProvidersDAO extends BaseDAO {
     return providers;
   }
 
-  public Provider findById(int id) throws SQLException {
+  public Provider findById(int id) {
     Provider provider = null;
     try {
       String sql = "SELECT * FROM providers WHERE id=?";
@@ -59,7 +59,7 @@ public class ProvidersDAO extends BaseDAO {
     return provider;
   }
   
-  public boolean create(Provider provider) throws SQLException {
+  public boolean create(Provider provider) {
     try {
       String sql = "INSERT INTO providers (name, address) " +
                    "VALUES (?, ?)";
@@ -75,7 +75,7 @@ public class ProvidersDAO extends BaseDAO {
     return false;
   }
   
-  public boolean delete(int id) throws SQLException {
+  public boolean delete(int id) {
     try {
       String sql = "DELETE FROM providers WHERE id = ?";
       PreparedStatement statement = this.connection.prepareStatement(sql);
@@ -89,7 +89,7 @@ public class ProvidersDAO extends BaseDAO {
     return false;
   }
   
-  public boolean update(Provider provider) throws SQLException {
+  public boolean update(Provider provider) {
     try {
       String sql = "UPDATE providers " +
                    "SET name = ?, address = ? " +

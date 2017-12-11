@@ -8,11 +8,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Supermercado - Lojas</title>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/index.css">.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="../app/assets/stylesheets/index.css">
 </head>
 <body>
   <header class="container-fluid">
@@ -24,10 +24,8 @@
       <li class="nav-item"><a href="#">Cliente</a></li>
       <li class="nav-item"><a href="#">Vendedor</a></li>
       <li class="nav-item"><a href="#">Produto</a></li>
-      <li class="nav-item"><a href="/supermercado/lojas/novo">Nova Loja</a></li>
       <li class="nav-item"><a href="/supermercado/lojas">Loja</a></li>
       <li class="nav-item"><a href="#">Categoria</a></li>
-      <li class="nav-item"><a href="/supermercado/fornecedores/novo">Novo Fornecedor</a></li>
       <li class="nav-item active"><a href="/supermercado/fornecedores">Fornecedor</a></li>
       <li class="nav-item"><a href="#">Pedido</a></li>
     </ul>
@@ -38,7 +36,7 @@
     <hr class="content-line" />
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
-          <form class="user-form" action="novo" method="post">
+          <form class="user-form" method="post">
             <div class="row">
               <div class="col-sm-3">
                 <label>Nome: </label>

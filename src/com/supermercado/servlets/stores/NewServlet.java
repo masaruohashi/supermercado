@@ -29,23 +29,19 @@ public class NewServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String name  = request.getParameter("name");
     String address = request.getParameter("address");
-    try {
-      Store store = new Store();
-      store.setName(name);
-      store.setAddress(address);
-      if(name == null || address == null) {
-        response.sendRedirect(request.getContextPath() + "/lojas/novo?msg=Insira todos os campos");
+    Store store = new Store();
+    store.setName(name);
+    store.setAddress(address);
+    if(name == null || address == null) {
+      response.sendRedirect(request.getContextPath() + "/lojas/novo?msg=Insira todos os campos");
+    }
+    else {
+      if(StoresDAO.getInstance().create(store)) {
+        response.sendRedirect(request.getContextPath() + "/lojas?msg=Loja criada com sucesso");
       }
       else {
-        if(StoresDAO.getInstance().create(store)) {
-          response.sendRedirect(request.getContextPath() + "/lojas?msg=Loja criada com sucesso");
-        }
-        else {
-          response.sendRedirect(request.getContextPath() + "/lojas/novo?msg=Falha ao criar a loja");
-        }
+        response.sendRedirect(request.getContextPath() + "/lojas/novo?msg=Falha ao criar a loja");
       }
-    } catch (SQLException e) {
-      e.printStackTrace();
     }
   }
 

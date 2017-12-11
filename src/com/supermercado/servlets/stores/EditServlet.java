@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.supermercado.dao.StoresDAO;
 import com.supermercado.models.Store;
 
-@WebServlet(name = "EditStoreServlet", urlPatterns = { "/lojas/edit" })
+@WebServlet(name = "EditStoreServlet", urlPatterns = { "/lojas/editar" })
 public class EditServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
@@ -23,38 +23,31 @@ public class EditServlet extends HttpServlet {
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     Store store = new Store();
-    try {
-      int id = Integer.parseInt(request.getParameter("id"));
-      store = StoresDAO.getInstance().findById(id);
-      request.setAttribute("store", store);
-      RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/stores/edit.jsp");
-      requestDispatcher.forward(request, response);
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
+    int id = Integer.parseInt(request.getParameter("id"));
+    store = StoresDAO.getInstance().findById(id);
+    request.setAttribute("store", store);
+    RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/stores/edit.jsp");
+    requestDispatcher.forward(request, response);
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     int id = Integer.parseInt(request.getParameter("id"));
     String name = request.getParameter("name");
     String address = request.getParameter("address");
-    try {
-      Store store = new Store();
-      store.setName(name);
-      store.setAddress(address);
-      if(name == null || address == null) {
-        response.sendRedirect(request.getContextPath() + "/lojas/editar?id=" + id + "&msg=Insira todos os campos");
+    Store store = new Store();
+    store.setId(id);
+    store.setName(name);
+    store.setAddress(address);
+    if(name == null || name.matches("") || address == null || address.matches("")) {
+      response.sendRedirect(request.getContextPath() + "/lojas/editar?id=" + id + "&msg=Insira todos os campos");
+    }
+    else {
+      if(StoresDAO.getInstance().update(store)) {
+        response.sendRedirect(request.getContextPath() + "/lojas?msg=Loja editada com sucesso");
       }
       else {
-        if(StoresDAO.getInstance().update(store)) {
-          response.sendRedirect(request.getContextPath() + "/lojas?msg=Loja editada com sucesso");
-        }
-        else {
-          response.sendRedirect(request.getContextPath() + "/lojas/editar?id=" + id + "&msg=Falha ao editar a loja");
-        }
+        response.sendRedirect(request.getContextPath() + "/lojas/editar?id=" + id + "&msg=Falha ao editar a loja");
       }
-    } catch (SQLException e) {
-      e.printStackTrace();
     }
   }
 

@@ -29,23 +29,19 @@ public class NewServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String name  = request.getParameter("name");
     String address = request.getParameter("address");
-    try {
-      Provider provider = new Provider();
-      provider.setName(name);
-      provider.setAddress(address);
-      if(name == null || address == null) {
-        response.sendRedirect(request.getContextPath() + "/fornecedores/novo?msg=Insira todos os campos");
+    Provider provider = new Provider();
+    provider.setName(name);
+    provider.setAddress(address);
+    if(name == null || address == null) {
+      response.sendRedirect(request.getContextPath() + "/fornecedores/novo?msg=Insira todos os campos");
+    }
+    else {
+      if(ProvidersDAO.getInstance().create(provider)) {
+        response.sendRedirect(request.getContextPath() + "/fornecedores?msg=Fornecedor criado com sucesso");
       }
       else {
-        if(ProvidersDAO.getInstance().create(provider)) {
-          response.sendRedirect(request.getContextPath() + "/fornecedores?msg=Fornecedor criado com sucesso");
-        }
-        else {
-          response.sendRedirect(request.getContextPath() + "/fornecedores/novo?msg=Falha ao criar o fornecedor");
-        }
+        response.sendRedirect(request.getContextPath() + "/fornecedores/novo?msg=Falha ao criar o fornecedor");
       }
-    } catch (SQLException e) {
-      e.printStackTrace();
     }
   }
 

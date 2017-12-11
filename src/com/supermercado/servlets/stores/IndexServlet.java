@@ -22,15 +22,11 @@ public class IndexServlet extends HttpServlet {
         super();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      try {
-        List<Store> stores= null;
-        stores = StoresDAO.getInstance().getAll();
-        request.setAttribute("stores", stores);
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/stores/index.jsp");
-        requestDispatcher.forward(request, response);
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
+      List<Store> stores= null;
+      stores = StoresDAO.getInstance().getAll();
+      request.setAttribute("stores", stores);
+      RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/stores/index.jsp");
+      requestDispatcher.forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

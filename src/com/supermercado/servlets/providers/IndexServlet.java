@@ -22,15 +22,11 @@ public class IndexServlet extends HttpServlet {
         super();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      try {
-        List<Provider> providers= null;
-        providers = ProvidersDAO.getInstance().getAll();
-        request.setAttribute("providers", providers);
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/providers/index.jsp");
-        requestDispatcher.forward(request, response);
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
+      List<Provider> providers= null;
+      providers = ProvidersDAO.getInstance().getAll();
+      request.setAttribute("providers", providers);
+      RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/providers/index.jsp");
+      requestDispatcher.forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

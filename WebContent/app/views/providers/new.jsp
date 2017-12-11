@@ -8,12 +8,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Supermercado - Lojas</title>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/index.css">
-   <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/registration.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="../app/assets/stylesheets/index.css">
+  <link rel="stylesheet" type="text/css" href="../app/assets/stylesheets/registration.css">
 </head>
 <body>
   <header class="container-fluid">
@@ -25,11 +25,9 @@
       <li class="nav-item"><a href="#">Cliente</a></li>
       <li class="nav-item"><a href="#">Vendedor</a></li>
       <li class="nav-item"><a href="#">Produto</a></li>
-      <li class="nav-item"><a href="/supermercado/lojas/novo">Nova Loja</a></li>
       <li class="nav-item"><a href="/supermercado/lojas">Loja</a></li>
       <li class="nav-item"><a href="#">Categoria</a></li>
-      <li class="nav-item active"><a href="/supermercado/fornecedores/novo">Novo Fornecedor</a></li>
-      <li class="nav-item"><a href="/supermercado/fornecedores">Fornecedor</a></li>
+      <li class="nav-item active"><a href="/supermercado/fornecedores">Fornecedor</a></li>
       <li class="nav-item"><a href="#">Pedido</a></li>
     </ul>
   </nav>
@@ -46,8 +44,7 @@
               <div class="col-sm-9">
                 <% if(request.getParameter("name") != null) { %>
                   <input class="user-input pull-right" type="text" name="name" value="<%=request.getParameter("name")%>"/>
-                <% }
-                else { %>
+                <% } else { %>
                   <input class="user-input pull-right" type="text" name="name" />
                 <% } %>
               </div>
@@ -59,8 +56,7 @@
               <div class="col-sm-9">
                 <% if(request.getParameter("address") != null) { %>
                   <input class="user-input pull-right" type="text" name="address" value="<%=request.getParameter("address")%>"/>
-                <% }
-                else { %>
+                <% } else { %>
                   <input class="user-input pull-right" type="text" name="address" />
                 <% } %>
               </div>
