@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class OrdersDAO extends BaseDAO{
     String sql = "INSERT INTO orders (date, payment_method, delivery_method, status, client_id, seller_id, store_id) " +
       "VALUES (?, ?, ?, ?, ?, ?, ?)";
     try {
-      PreparedStatement statement = this.connection.prepareStatement(sql);
+      PreparedStatement statement = this.connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
       statement.setDate(1, new Date(order.getDate().getTime()));
       statement.setString(2, order.getPaymentMethod());
       statement.setString(3, order.getDeliveryMethod());
