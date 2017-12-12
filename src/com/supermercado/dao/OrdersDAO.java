@@ -47,9 +47,15 @@ public class OrdersDAO extends BaseDAO{
     return false;
   }
 
-  public List<Order> findAll() {
+  public List<Order> findWithFilters(Integer sellerId, Integer minimumPrice) {
     List<Order> orders = null;
-    String sql = "SELECT * FROM orders ORDER BY date";
+    String sql = "SELECT orders.*, SUM(products.price * order_items.quantity) AS total_price " +
+                 "FROM orders, products, order_items " +
+                 "WHERE order_items.product_id = products.id "+
+                 "AND order_items.order_id = orders.id " +
+                 "AND orders.seller_id = " + getSellerId(sellerId) + " " +
+                 "GROUP BY order_items.order_id " +
+                 "HAVING total_price >= " + getMinimumPrice(minimumPrice);
     try {
       orders = new ArrayList<Order>();
       PreparedStatement statement = this.connection.prepareStatement(sql);
@@ -61,6 +67,7 @@ public class OrdersDAO extends BaseDAO{
         order.setDeliveryMethod(result.getString("delivery_method"));
         order.setStatus(result.getString("status"));
         order.setDate(result.getDate("date"));
+        order.setTotalPrice(result.getDouble("total_price"));
         order.setClient(ClientsDAO.getInstance().findById(result.getInt("client_id")));
         order.setSeller(SellersDAO.getInstance().findById(result.getInt("seller_id")));
         order.setStore(StoresDAO.getInstance().findById(result.getInt("store_id")));
@@ -95,5 +102,19 @@ public class OrdersDAO extends BaseDAO{
       e.printStackTrace();
     }
     return order;
+  }
+  
+  private String getSellerId(Integer sellerId) {
+    if(sellerId == null) {
+      return "orders.seller_id";
+    }
+    return sellerId.toString();
+  }
+  
+  private Integer getMinimumPrice(Integer minimumPrice) {
+    if(minimumPrice == null) {
+      return 0;
+    }
+    return minimumPrice;
   }
 }

@@ -23,6 +23,10 @@ public class OrderDecorator {
     return order.getStore().getName();
   }
 
+  public String totalPrice() {
+    return String.format("%.2f", order.getTotalPrice());
+  }
+
   public int id() {
     return order.getId();
   }
