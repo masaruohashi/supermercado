@@ -45,16 +45,6 @@ Desktop.ini
 .Trashes
 
 ######################
-# NetBeans
-######################
-nbproject/
-build/
-nbbuild/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-
-######################
 # IDEA
 ######################
 *.iml

@@ -1,15 +1,15 @@
 package com.supermercado.dao;
 
-import com.supermercado.models.Provider;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.supermercado.models.Provider;
+
 public class ProvidersDAO extends BaseDAO {
-  public ProvidersDAO () {
+  public ProvidersDAO() {
     super();
   }
 
@@ -17,14 +17,12 @@ public class ProvidersDAO extends BaseDAO {
     return new ProvidersDAO();
   }
 
-  public List<Provider> getAll() throws SQLException {
+  public List<Provider> getAll() {
     List<Provider> providers = new ArrayList<Provider>();
-
     try {
-      String sql = "SELECT * FROM providers";
+      String sql = "SELECT * from providers";
       PreparedStatement statement = this.connection.prepareStatement(sql);
       ResultSet result = statement.executeQuery();
-
       while(result.next()) {
         Provider provider = new Provider();
         provider.setId(result.getInt("id"));
@@ -40,15 +38,15 @@ public class ProvidersDAO extends BaseDAO {
     return providers;
   }
 
-  public Provider findById(int id) throws SQLException {
-    Provider provider = new Provider();
-
+  public Provider findById(int id) {
+    Provider provider = null;
     try {
       String sql = "SELECT * FROM providers WHERE id=?";
       PreparedStatement statement = this.connection.prepareStatement(sql);
       statement.setInt(1, id);
       ResultSet result = statement.executeQuery();
       if(result.next()) {
+        provider = new Provider();
         provider.setId(result.getInt("id"));
         provider.setName(result.getString("name"));
         provider.setAddress(result.getString("address"));
@@ -61,10 +59,10 @@ public class ProvidersDAO extends BaseDAO {
     return provider;
   }
 
-  public boolean create(Provider provider) throws SQLException {
-    String sql = "INSERT INTO providers (name, address)" +
-            "VALUES (?, ?)";
+  public boolean create(Provider provider) {
     try {
+      String sql = "INSERT INTO providers (name, address) " +
+              "VALUES (?, ?)";
       PreparedStatement statement = this.connection.prepareStatement(sql);
       statement.setString(1, provider.getName());
       statement.setString(2, provider.getAddress());
@@ -77,7 +75,7 @@ public class ProvidersDAO extends BaseDAO {
     return false;
   }
 
-  public boolean delete(int id) throws SQLException {
+  public boolean delete(int id) {
     try {
       String sql = "DELETE FROM providers WHERE id = ?";
       PreparedStatement statement = this.connection.prepareStatement(sql);
@@ -91,11 +89,11 @@ public class ProvidersDAO extends BaseDAO {
     return false;
   }
 
-  public boolean edit (Provider provider) throws SQLException {
-    String sql = "UPDATE providers " +
-            "SET name = ?, address = ?" +
-            "WHERE  id = ?";
+  public boolean update(Provider provider) {
     try {
+      String sql = "UPDATE providers " +
+              "SET name = ?, address = ? " +
+              "WHERE id = ?";
       PreparedStatement statement = this.connection.prepareStatement(sql);
       statement.setString(1, provider.getName());
       statement.setString(2, provider.getAddress());
