@@ -17,7 +17,7 @@ public class ClientsDAO extends BaseDAO{
     return new ClientsDAO();
   }
 
-  public List<Client> getAll() throws SQLException {
+  public List<Client> getAll() {
     List<Client> clients = new ArrayList<Client>();
     try {
       String sql = "SELECT * FROM clients";
@@ -39,7 +39,7 @@ public class ClientsDAO extends BaseDAO{
     return clients;
   }
 
-  public Client findById(int id) throws SQLException {
+  public Client findById(int id) {
     Client client = null;
     try {
       String sql = "SELECT * FROM clients WHERE id=?";
@@ -59,5 +59,43 @@ public class ClientsDAO extends BaseDAO{
       e.printStackTrace();
     }
     return client;
+  }
+  
+  public void add(Client client) throws SQLException {
+	  try {
+		  String sql = "INSERT INTO clients (name, cpf, address) VALUES (?, ?, ?)";
+	      PreparedStatement statement = this.connection.prepareStatement(sql);
+	      statement.setString(1, client.getName());
+	      statement.setString(2, client.getCpf());
+	      statement.setString(3, client.getAddress());
+	      statement.executeUpdate();	      
+	  } catch (SQLException e) {
+		  e.printStackTrace();
+	  }
+  }
+  
+  public void update(Client client) throws SQLException {
+	  try {
+		  String sql = "UPDATE clients SET name = ?, cpf = ?, address = ? WHERE id = ?";
+	      PreparedStatement statement = this.connection.prepareStatement(sql);
+	      statement.setString(1, client.getName());
+	      statement.setString(2, client.getCpf());
+	      statement.setString(3, client.getAddress());
+	      statement.setInt(4, client.getId());	      
+	      statement.executeUpdate();	      
+	  } catch (SQLException e) {
+		  e.printStackTrace();
+	  }
+  }
+  
+  public void delete(int id) throws SQLException {
+	  try {
+		  String sql = "DELETE FROM clients WHERE id = ?";
+	      PreparedStatement statement = this.connection.prepareStatement(sql);
+	      statement.setInt(1, id);	      
+	      statement.executeUpdate();	      
+	  } catch (SQLException e) {
+		  e.printStackTrace();
+	  }
   }
 }

@@ -17,7 +17,7 @@ public class StoresDAO extends BaseDAO{
     return new StoresDAO();
   }
 
-  public List<Store> getAll() throws SQLException {
+  public List<Store> getAll() {
     List<Store> stores = new ArrayList<Store>();
     try {
       String sql = "SELECT * from stores";
@@ -38,7 +38,7 @@ public class StoresDAO extends BaseDAO{
     return stores;
   }
 
-  public Store findById(int id) throws SQLException {
+  public Store findById(int id) {
     Store store = null;
     try {
       String sql = "SELECT * FROM stores WHERE id=?";
@@ -57,5 +57,53 @@ public class StoresDAO extends BaseDAO{
       e.printStackTrace();
     }
     return store;
+  }
+  
+  public boolean create(Store store) {
+    try {
+      String sql = "INSERT INTO stores (name, address) " +
+                   "VALUES (?, ?)";
+      PreparedStatement statement = this.connection.prepareStatement(sql);
+      statement.setString(1, store.getName());
+      statement.setString(2, store.getAddress());
+      statement.execute();
+      statement.close();
+      return true;
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return false;
+  }
+  
+  public boolean delete(int id) {
+    try {
+      String sql = "DELETE FROM stores WHERE id = ?";
+      PreparedStatement statement = this.connection.prepareStatement(sql);
+      statement.setInt(1, id);
+      statement.execute();
+      statement.close();
+      return true;
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return false;
+  }
+  
+  public boolean update(Store store) {
+    try {
+      String sql = "UPDATE stores " +
+                   "SET name = ?, address = ? " +
+                   "WHERE id = ?";
+      PreparedStatement statement = this.connection.prepareStatement(sql);
+      statement.setString(1, store.getName());
+      statement.setString(2, store.getAddress());
+      statement.setInt(3, store.getId());
+      statement.execute();
+      statement.close();
+      return true;
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return false;
   }
 }

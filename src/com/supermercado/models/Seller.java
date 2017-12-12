@@ -4,6 +4,21 @@ public class Seller {
   private int id;
   private String name;
   private String cpf;
+  
+  public Seller() {
+	  
+  }
+  
+  public Seller(String name, String cpf) {
+	  this.name = name;
+	  this.cpf = cpf;
+  }
+  
+  public Seller(int id, String name, String cpf) {
+	  this.id = id;
+	  this.name = name;
+	  this.cpf = cpf;
+  }
 
   public int getId() {
     return id;
