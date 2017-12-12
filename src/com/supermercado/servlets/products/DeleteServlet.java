@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/produto/deletar")
+@WebServlet("/produtos/deletar")
 public class DeleteServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -19,10 +19,10 @@ public class DeleteServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     try {
       if (ProductsDAO.getInstance().delete(Integer.parseInt(request.getParameter("id")))) {
-        response.sendRedirect(request.getContextPath() + "/produto?msg=Produto excluido com sucesso!");
+        response.sendRedirect(request.getContextPath() + "/produtos?msg=Produto excluido com sucesso!");
       }
       else {
-        response.sendRedirect(request.getContextPath() + "/produto?msg=Falha em excluir o produto.");
+        response.sendRedirect(request.getContextPath() + "/produtos?msg=Falha em excluir o produto.");
       }
     } catch (SQLException e) {
       e.printStackTrace();

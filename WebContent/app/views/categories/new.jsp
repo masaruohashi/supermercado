@@ -20,9 +20,9 @@
         <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
         <li class="nav-item"><a href="/clientes">Cliente</a></li>
         <li class="nav-item"><a href="/vendedores">Vendedor</a></li>
-        <li class="nav-item"><a href="/produto">Produtos</a></li>
+        <li class="nav-item"><a href="/produtos">Produtos</a></li>
         <li class="nav-item"><a href="/lojas">Loja</a></li>
-        <li class="nav-item active"><a href="/categoria">Categorias</a></li>
+        <li class="nav-item active"><a href="/categorias">Categorias</a></li>
         <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
         <li class="nav-item"><a href="/pedido">Pedido</a></li>
     </ul>
@@ -37,8 +37,17 @@
                     <label for="name">Nome:</label>
                     <input class="form-control" type="text" id="name" name="name" />
                     <br>
-                    <div class="col-sm-12">
-                        <input type="submit" value="Criar categoria" class="form-button btn btn-primary pull-right" />
+                    <div class="row form-buttons">
+                        <div class="col-sm-6 col-sm-offset-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="/categorias" class="form-button btn btn-warning pull-right">Cancelar</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="submit" value="Salvar" class="form-button btn btn-primary pull-right" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>

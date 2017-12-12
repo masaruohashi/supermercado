@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/categoria/editar")
+@WebServlet("/categorias/editar")
 public class EditServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     Category category = new Category();
@@ -22,10 +22,10 @@ public class EditServlet extends HttpServlet {
 
     try {
       if (CategoriesDAO.getInstance().edit(category)) {
-        response.sendRedirect(request.getContextPath() + "/categoria?msg=Categoria editada com sucesso!");
+        response.sendRedirect(request.getContextPath() + "/categorias?msg=Categoria editada com sucesso!");
       }
       else {
-        response.sendRedirect(request.getContextPath() + "/categoria/editar?msg=Falha ao editar categoria.");
+        response.sendRedirect(request.getContextPath() + "/categorias/editar?msg=Falha ao editar categoria.");
       }
     } catch (SQLException e) {
       e.printStackTrace();

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/categoria/deletar")
+@WebServlet("/categorias/deletar")
 public class DeleteServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -20,10 +20,10 @@ public class DeleteServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     try {
       if (CategoriesDAO.getInstance().delete(Integer.parseInt(request.getParameter("id")))) {
-        response.sendRedirect(request.getContextPath() + "/categoria?msg=Categoria excluida com sucesso!");
+        response.sendRedirect(request.getContextPath() + "/categorias?msg=Categoria excluida com sucesso!");
       }
       else {
-        response.sendRedirect(request.getContextPath() + "/categoria?msg=Falha em excluir a categoria.");
+        response.sendRedirect(request.getContextPath() + "/categorias?msg=Falha em excluir a categoria.");
       }
     } catch (SQLException e) {
       e.printStackTrace();

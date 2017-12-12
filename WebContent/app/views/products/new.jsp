@@ -27,9 +27,9 @@
         <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
         <li class="nav-item"><a href="/clientes">Cliente</a></li>
         <li class="nav-item"><a href="#/vendedores">Vendedor</a></li>
-        <li class="nav-item active"><a href="/produto">Produtos</a></li>
+        <li class="nav-item active"><a href="/produtos">Produtos</a></li>
         <li class="nav-item"><a href="/lojas">Loja</a></li>
-        <li class="nav-item"><a href="/categoria">Categorias</a></li>
+        <li class="nav-item"><a href="/categorias">Categorias</a></li>
         <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
         <li class="nav-item"><a href="/pedido">Pedido</a></li>
     </ul>
@@ -73,8 +73,17 @@
                     <input class="form-control money" type="text" id="price" name="price" />
                     <% } %>
                     <br>
-                    <div class="col-sm-12">
-                        <input type="submit" value="Criar produto" class="form-button btn btn-primary pull-right" />
+                    <div class="row form-buttons">
+                        <div class="col-sm-6 col-sm-offset-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="/produtos" class="form-button btn btn-warning pull-right">Cancelar</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="submit" value="Salvar" class="form-button btn btn-primary pull-right" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>

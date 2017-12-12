@@ -27,9 +27,9 @@
         <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
         <li class="nav-item"><a href="/clientes">Cliente</a></li>
         <li class="nav-item"><a href="/vendedores">Vendedor</a></li>
-        <li class="nav-item active"><a href="/produto">Produtos</a></li>
+        <li class="nav-item active"><a href="/produtos">Produtos</a></li>
         <li class="nav-item"><a href="/lojas">Loja</a></li>
-        <li class="nav-item"><a href="/categoria">Categorias</a></li>
+        <li class="nav-item"><a href="/categorias">Categorias</a></li>
         <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
         <li class="nav-item"><a href="/pedido">Pedido</a></li>
     </ul>
@@ -42,55 +42,66 @@
             <% Product selectedProduct = (Product) request.getAttribute("selected_product"); %>
             <% List<Category> categories = (ArrayList<Category>) request.getAttribute("categories"); %>
             <% List<Provider> providers = (List<Provider>) request.getAttribute("providers"); %>
-            <form action="editar" method="POST" class="form-group">
-                <div class="col-sm-8 col-sm-offset-2 js-user-seller">
-                    <input type="hidden" name="id" value="<%= selectedProduct.getId() %>" />
-                    <br>
-                    <label for="category">Categoria:</label>
-                    <select class="form-control" id="category" name="category">
-                        <% for(Category category : categories) {
-                            if (category.getName().matches(selectedProduct.getCategory().getName())) {
-                        %>
-                        <option value="<%= category.getId() %>" selected>
-                            <%= category.getName() %>
-                        </option>
-                        <% }
-                           else { %>
-                        <option value="<%= category.getId() %>">
-                            <%= category.getName() %>
-                        </option>
-                        <% }
-                        } %>
-                    </select>
-                    <br>
-                    <label for="provider">Provedor:</label>
-                    <select class="form-control" id="provider" name="provider">
-                        <% for(Provider provider : providers) {
-                            if (provider.getName().matches(selectedProduct.getProvider().getName())) {
-                        %>
-                        <option value="<%= provider.getId() %>" selected>
-                            <%= provider.getName() %>  - <%= provider.getAddress() %>
-                        </option>
-                        <% }
-                           else { %>
-                        <option value="<%= provider.getId() %>">
-                            <%= provider.getName() %>  - <%= provider.getAddress() %>
-                        </option>
-                        <% }
-                        } %>
-                    </select>
-                    <br>
-                    <label for="name">Nome:</label>
-                    <input value=<%=selectedProduct.getName()%> class="form-control" type="text" id="name" name="name" />
-                    <br>
-                    <label for="price">Preço (R$):</label>
-                    <input value=<%=selectedProduct.getFormattedPrice()%> class="form-control money" type="text" id="price" name="price" />
-                    <br>
-                    <div class="col-sm-12">
-                        <input type="submit" value="Editar produto" class="form-button btn btn-primary pull-right" />
+            <div class="col-sm-6 col-sm-offset-3">
+                <form action="editar" method="POST" class="form-group">
+                    <div class="col-sm-8 col-sm-offset-2 js-user-seller">
+                        <input type="hidden" name="id" value="<%= selectedProduct.getId() %>" />
+                        <br>
+                        <label for="category">Categoria:</label>
+                        <select class="form-control" id="category" name="category">
+                            <% for(Category category : categories) {
+                                if (category.getName().matches(selectedProduct.getCategory().getName())) {
+                            %>
+                            <option value="<%= category.getId() %>" selected>
+                                <%= category.getName() %>
+                            </option>
+                            <% }
+                               else { %>
+                            <option value="<%= category.getId() %>">
+                                <%= category.getName() %>
+                            </option>
+                            <% }
+                            } %>
+                        </select>
+                        <br>
+                        <label for="provider">Provedor:</label>
+                        <select class="form-control" id="provider" name="provider">
+                            <% for(Provider provider : providers) {
+                                if (provider.getName().matches(selectedProduct.getProvider().getName())) {
+                            %>
+                            <option value="<%= provider.getId() %>" selected>
+                                <%= provider.getName() %>  - <%= provider.getAddress() %>
+                            </option>
+                            <% }
+                               else { %>
+                            <option value="<%= provider.getId() %>">
+                                <%= provider.getName() %>  - <%= provider.getAddress() %>
+                            </option>
+                            <% }
+                            } %>
+                        </select>
+                        <br>
+                        <label for="name">Nome:</label>
+                        <input value=<%=selectedProduct.getName()%> class="form-control" type="text" id="name" name="name" />
+                        <br>
+                        <label for="price">Preço (R$):</label>
+                        <input value=<%=selectedProduct.getFormattedPrice()%> class="form-control money" type="text" id="price" name="price" />
+                        <br>
+                        <div class="row form-buttons">
+                            <div class="col-sm-6 col-sm-offset-6">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="/produtos" class="form-button btn btn-warning pull-right">Cancelar</a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="submit" value="Enviar" class="form-button btn btn-primary pull-right" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

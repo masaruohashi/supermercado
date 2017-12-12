@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/produto/editar")
+@WebServlet("/produtos/editar")
 public class EditServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     Product product = new Product();
@@ -31,10 +31,10 @@ public class EditServlet extends HttpServlet {
       product.setProvider(ProvidersDAO.getInstance().findById(Integer.parseInt(request.getParameter("provider"))));
 
       if (ProductsDAO.getInstance().edit(product)) {
-        response.sendRedirect(request.getContextPath() + "/produto?msg=Produto editado com sucesso!");
+        response.sendRedirect(request.getContextPath() + "/produtos?msg=Produto editado com sucesso!");
       }
       else {
-        response.sendRedirect(request.getContextPath() + "/produto/editar?msg=Falha ao editar produto.");
+        response.sendRedirect(request.getContextPath() + "/produtos/editar?msg=Falha ao editar produto.");
       }
     } catch (SQLException e) {
       e.printStackTrace();

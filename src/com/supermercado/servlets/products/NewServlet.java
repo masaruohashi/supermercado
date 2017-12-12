@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/produto/novo")
+@WebServlet("/produtos/novo")
 public class NewServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     Product product = new Product();
@@ -30,10 +30,10 @@ public class NewServlet extends HttpServlet {
       product.setProvider(ProvidersDAO.getInstance().findById(Integer.parseInt(request.getParameter("provider"))));
 
       if(ProductsDAO.getInstance().create(product)) {
-        response.sendRedirect(request.getContextPath() + "/produto?msg=Produto criado com sucesso!");
+        response.sendRedirect(request.getContextPath() + "/produtos?msg=Produto criado com sucesso!");
       }
       else {
-        response.sendRedirect(request.getContextPath() + "/produto/novo?msg=Falha na criacao do produto.");
+        response.sendRedirect(request.getContextPath() + "/produtos/novo?msg=Falha na criacao do produto.");
 //        doGet(request, response);
       }
     }

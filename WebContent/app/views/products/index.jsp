@@ -23,19 +23,25 @@
         <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
         <li class="nav-item"><a href="/clientes">Cliente</a></li>
         <li class="nav-item"><a href="/vendedores">Vendedor</a></li>
-        <li class="nav-item active"><a href="/produto">Produtos</a></li>
+        <li class="nav-item active"><a href="/produtos">Produtos</a></li>
         <li class="nav-item"><a href="/lojas">Loja</a></li>
-        <li class="nav-item"><a href="/categoria">Categorias</a></li>
+        <li class="nav-item"><a href="/categorias">Categorias</a></li>
         <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
         <li class="nav-item"><a href="/pedido">Pedido</a></li>
     </ul>
 </nav>
 <div class="content">
-    <span class="content-header">Categorias</span>
+    <span class="content-header">Produtos</span>
+    <div class="col-sm-2">
+        <a class="btn btn-primary pull-right add-button" href="/produtos/novo">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            <span>Adicionar</span>
+        </a>
+    </div>
     <hr class="content-line" />
     <div class="products">
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-2 js-user-seller">
+            <div class="content-table col-sm-10 col-sm-offset-1">
                 <table class="table">
                     <thead>
                     <tr>
@@ -56,17 +62,18 @@
                         <td><%= product.getCategory().getName() %></td>
                         <td><%= product.getProvider().getName() %></td>
                         <td>
-                            <a href="produto/editar?id=<%=product.getId() %>" class="btn btn-warning">Editar</a>
-                            <a href="produto/deletar?id=<%=product.getId() %>" class="btn btn-danger">Excluir</a>
+                            <a href="produtos/editar?id=<%=product.getId() %>" class="table-button">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                            <a href="produtos/deletar?id=<%=product.getId() %>" class="table-button">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </a>
                         </td>
                     </tr>
                     <% } %>
                     <br>
                     </tbody>
                 </table>
-                <div class="col-sm-12">
-                    <a href="/produto/novo" class="form-button btn btn-primary pull-right">Criar produto</a>
-                </div>
             </div>
         </div>
     </div>

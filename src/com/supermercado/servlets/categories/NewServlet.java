@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/categoria/novo")
+@WebServlet("/categorias/novo")
 public class NewServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     Category category = new Category();
@@ -21,10 +21,10 @@ public class NewServlet extends HttpServlet {
       category.setName(request.getParameter("name"));
 
       if(CategoriesDAO.getInstance().create(category)) {
-        response.sendRedirect(request.getContextPath() + "/categoria?msg=Categoria criada com sucesso!");
+        response.sendRedirect(request.getContextPath() + "/categorias?msg=Categoria criada com sucesso!");
       }
       else {
-        response.sendRedirect(request.getContextPath() + "/categoria/novo?msg=Falha na criacao da categoria.");
+        response.sendRedirect(request.getContextPath() + "/categorias/novo?msg=Falha na criacao da categoria.");
 //        doGet(request, response);
       }
     }

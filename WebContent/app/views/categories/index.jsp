@@ -23,19 +23,25 @@
         <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
         <li class="nav-item"><a href="/clientes">Cliente</a></li>
         <li class="nav-item"><a href="/vendedores">Vendedor</a></li>
-        <li class="nav-item"><a href="/produto">Produtos</a></li>
+        <li class="nav-item"><a href="/produtos">Produtos</a></li>
         <li class="nav-item"><a href="/lojas">Loja</a></li>
-        <li class="nav-item active"><a href="/categoria">Categorias</a></li>
+        <li class="nav-item active"><a href="/categorias">Categorias</a></li>
         <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
         <li class="nav-item"><a href="/pedido">Pedido</a></li>
     </ul>
 </nav>
 <div class="content">
     <span class="content-header">Categorias</span>
+    <div clas="col-sm-2">
+        <a class="btn btn-primary pull-right add-button" href="/categorias/novo">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            <span>Adicionar</span>
+        </a>
+    </div>
     <hr class="content-line" />
     <div class="products">
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-2 js-user-seller">
+            <div class="content-table col-sm-10 col-sm-offset-1">
                 <table class="table">
                     <thead>
                     <tr>
@@ -50,17 +56,18 @@
                     <tr>
                         <td><%= category.getName() %></td>
                         <td>
-                            <a href="categoria/editar?id=<%=category.getId() %>" class="btn btn-warning">Editar</a>
-                            <a href="categoria/deletar?id=<%=category.getId() %>" class="btn btn-danger">Excluir</a>
+                            <a href="categorias/editar?id=<%=category.getId() %>" class="table-button">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                            <a href="categorias/deletar?id=<%=category.getId() %>" class="table-button">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </a>
                         </td>
                     </tr>
                     <% } %>
                     <br>
                     </tbody>
                 </table>
-                <div class="col-sm-12">
-                    <a href="/categoria/novo" class="form-button btn btn-primary pull-right">Criar categoria</a>
-                </div>
             </div>
         </div>
     </div>
