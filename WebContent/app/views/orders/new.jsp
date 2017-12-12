@@ -26,10 +26,10 @@
       <li class="nav-item active"><a href="pedido">Novo Pedido</a></li>
       <li class="nav-item"><a href="clientes">Cliente</a></li>
       <li class="nav-item"><a href="vendedores">Vendedor</a></li>
-      <li class="nav-item"><a href="#">Produto</a></li>
-      <li class="nav-item"><a href="#">Loja</a></li>
-      <li class="nav-item"><a href="#">Categoria</a></li>
-      <li class="nav-item"><a href="#">Fornecedores</a></li>
+      <li class="nav-item"><a href="produtos">Produto</a></li>
+      <li class="nav-item"><a href="lojas">Loja</a></li>
+      <li class="nav-item"><a href="categorias">Categoria</a></li>
+      <li class="nav-item"><a href="fornecedores">Fornecedor</a></li>
       <li class="nav-item"><a href="pedidos">Pedido</a></li>
     </ul>
   </nav>

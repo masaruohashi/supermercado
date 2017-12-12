@@ -20,48 +20,54 @@
   </header>
   <nav>
     <ul class="nav-list">
-      <li class="nav-item"><a href="#">Novo Pedido</a></li>
-      <li class="nav-item"><a href="#">Cliente</a></li>
-      <li class="nav-item"><a href="#">Vendedor</a></li>
-      <li class="nav-item"><a href="#">Produto</a></li>
-      <li class="nav-item"><a href="/supermercado/lojas">Loja</a></li>
-      <li class="nav-item"><a href="#">Categoria</a></li>
-      <li class="nav-item active"><a href="/supermercado/fornecedores">Fornecedor</a></li>
-      <li class="nav-item"><a href="#">Pedido</a></li>
+      <li class="nav-item"><a href="pedido">Novo Pedido</a></li>
+      <li class="nav-item"><a href="clientes">Cliente</a></li>
+      <li class="nav-item"><a href="vendedores">Vendedor</a></li>
+      <li class="nav-item"><a href="produtos">Produto</a></li>
+      <li class="nav-item"><a href="lojas">Loja</a></li>
+      <li class="nav-item"><a href="categorias">Categoria</a></li>
+      <li class="nav-item active"><a href="fornecedores">Fornecedor</a></li>
+      <li class="nav-item"><a href="pedidos">Pedido</a></li>
     </ul>
   </nav>
   <div class="content">
-    <span class="content-header">Listagem de Fornecedores</span>
-    <div clas="col-sm-2">
-      <a class="btn btn-primary pull-right add-button" href="/supermercado/fornecedores/novo">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-        <span>Adicionar</span>
-      </a>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="content-header">Listagem de Fornecedores</span>
+        <a class="btn btn-primary pull-right add-button" href="/supermercado/fornecedores/novo">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          <span>Adicionar</span>
+        </a>
+      </div>
     </div>
-      <hr class="content-line" />
-        <div class="content-table">
-          <table class="table">
-            <thead>
+    <hr/>
+      <div class="content-table col-sm-10 col-sm-offset-1">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="col-sm-5">Nome</th>
+              <th class="col-sm-5">Endereço</th>
+              <th class="text-center col-sm-2">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% List<Provider> providers = (ArrayList<Provider>) request.getAttribute("providers"); %>
+            <% for(Provider provider: providers) { %>
               <tr>
-                <th>Nome</th>
-                <th>Endereço</th>
+                <td><%= provider.getName() %></td>
+                <td><%= provider.getAddress() %></td>
+                <td>
+                  <a href="fornecedores/editar?id=<%=provider.getId() %>" class="table-button">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  </a>
+                  <a href="fornecedores/deletar?id=<%=provider.getId() %>" class="table-button">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </a>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              <% List<Provider> providers = (ArrayList<Provider>) request.getAttribute("providers"); %>
-              <% for(Provider provider: providers) { %>
-                <tr>
-                  <td><%= provider.getName() %></td>
-                  <td><%= provider.getAddress() %></td>
-                  <td>
-                    <a href="fornecedores/editar?id=<%=provider.getId() %>" class="btn btn-warning">Editar</a>
-                    <a href="fornecedores/deletar?id=<%=provider.getId() %>" class="btn btn-danger">Excluir</a>
-                  </td>
-                </tr>
-              <% } %>
-            </tbody>
-          </table>
-        </div>
+            <% } %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

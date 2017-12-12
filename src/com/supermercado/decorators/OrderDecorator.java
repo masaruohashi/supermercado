@@ -19,6 +19,10 @@ public class OrderDecorator {
     return order.getSeller().getName();
   }
 
+  public String store() {
+    return order.getStore().getName();
+  }
+
   public int id() {
     return order.getId();
   }

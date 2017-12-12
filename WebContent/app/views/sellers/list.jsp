@@ -22,70 +22,67 @@
       <li class="nav-item"><a href="pedido">Novo Pedido</a></li>
       <li class="nav-item"><a href="clientes">Cliente</a></li>
       <li class="nav-item active"><a href="vendedores">Vendedor</a></li>
-      <li class="nav-item"><a href="#">Produto</a></li>
-      <li class="nav-item"><a href="#">Loja</a></li>
-      <li class="nav-item"><a href="#">Categoria</a></li>
-      <li class="nav-item"><a href="#">Fornecedores</a></li>
+      <li class="nav-item"><a href="produtos">Produto</a></li>
+      <li class="nav-item"><a href="lojas">Loja</a></li>
+      <li class="nav-item"><a href="categorias">Categoria</a></li>
+      <li class="nav-item"><a href="fornecedores">Fornecedor</a></li>
       <li class="nav-item"><a href="pedidos">Pedido</a></li>
     </ul>
   </nav>
   <div class="content">
-    <span class="content-header">Vendedores</span>
+    <div class="row">
+      <div class="col-sm-10">
+        <span class="content-header">Vendedores</span>
+      </div>
+      <div class="col-sm-2">
+        <a class="btn btn-primary pull-right" href="vendedores?acao=adicionar">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+          <span>Adicionar</span>
+        </a>
+      </div>
+    </div>
     <hr class="content-line" />
     <div class="sellers">
-      <div class="row">
-      	<form action="vendedores" method="GET" class="form-group">
-          <div class="col-sm-8 col-sm-offset-2 js-user-seller">
-            <% List<Seller> sellers = (ArrayList<Seller>) request.getAttribute("sellers"); %>
-            <% if(sellers.isEmpty()) { %>
-              <div class="col-sm-12 text-center">
-                <span>Não existem clientes cadastrados!</span>
-              </div>
-            <% } %>
-            <br>
-            <div class="col-sm-12">
-              <input class="hidden" name="acao" value="adicionar"/>
-              <input class="btn btn-primary pull-right" type="submit" value="Novo vendedor" />
+      <% List<Seller> sellers = (ArrayList<Seller>) request.getAttribute("sellers"); %>
+      <% if(sellers.isEmpty()) { %>
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-12 text-center">
+              <span>Não existem clientes cadastrados!</span>
             </div>
-          </div>
-        </form>
-      </div>
-      <div class="row">
-        <form action="vendedores" method="POST" class="form-group" id="seller-form">
-          <div class="col-sm-10 col-sm-offset-1 js-products">
-            <% if(!sellers.isEmpty()) { %>
+        </div>
+      <% } else {%>
+        <div class="row">
+          <form action="vendedores" method="POST" class="form-group" id="seller-form">
+            <div class="col-sm-10 col-sm-offset-1">
+              <% if(!sellers.isEmpty()) { %>
                 <table class="table">
                   <thead>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>Atualizar</th>
-                    <th>Excluir</th>             
+                    <th class="col-sm-5">Nome</th>
+                    <th class="col-sm-5">CPF</th>
+                    <th class="text-center col-sm-2">Ações</th>
                   </thead>
                   <tbody>
                     <% for(Seller seller : sellers) { %>
-                      <tr>                        
+                      <tr>
                         <td><%= seller.getName() %></td>
                         <td><%= seller.getCpf() %></td>
-                        <td>
-                        	<a class="table-button" href="${pageContext.request.contextPath}/vendedores?acao=atualizar&id=<%= seller.getId() %>">
-								<i class="fa fa-repeat" aria-hidden="true"></i>
-							</a>
+                        <td class="text-center">
+                          <a class="table-button" href="${pageContext.request.contextPath}/vendedores?acao=atualizar&id=<%= seller.getId() %>">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                          </a>
+                          <a class="table-button" href="${pageContext.request.contextPath}/vendedores?acao=excluir&id=<%= seller.getId() %>">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                          </a>
                         </td>
-                        <td>
-                        	<a class="table-button" href="${pageContext.request.contextPath}/vendedores?acao=excluir&id=<%= seller.getId() %>">
-								<i class="fa fa-times" aria-hidden="true"></i>
-							</a>
-                        </td>    
                       </tr>
                     <% } %>
                   </tbody>
                 </table>
-                <input class="hidden" name="acao" id="action"/>
-                <input class="hidden" name="id" id="idbox"/>              
-            <% } %>
-          </div>          
-        </form>
-      </div>
+              <% } %>
+            </div>
+          </form>
+        </div>
+      <% } %>
     </div>
   </div>
 </body>

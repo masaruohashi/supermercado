@@ -21,12 +21,12 @@
   <nav>
     <ul class="nav-list">
       <li class="nav-item"><a href="pedido">Novo Pedido</a></li>
-	  <li class="nav-item"><a href="clientes">Cliente</a></li>
+      <li class="nav-item"><a href="clientes">Cliente</a></li>
       <li class="nav-item"><a href="vendedores">Vendedor</a></li>
-      <li class="nav-item"><a href="#">Produto</a></li>
-      <li class="nav-item"><a href="#">Loja</a></li>
-      <li class="nav-item"><a href="#">Categoria</a></li>
-      <li class="nav-item"><a href="#">Fornecedores</a></li>
+      <li class="nav-item"><a href="produtos">Produto</a></li>
+      <li class="nav-item"><a href="lojas">Loja</a></li>
+      <li class="nav-item"><a href="categorias">Categoria</a></li>
+      <li class="nav-item"><a href="fornecedores">Fornecedor</a></li>
       <li class="nav-item active"><a href="pedidos">Pedido</a></li>
     </ul>
   </nav>
@@ -48,6 +48,7 @@
                   <th>#</th>
                   <th>Cliente</th>
                   <th>Vendedor</th>
+                  <th>Loja</th>
                   <th>Data</th>
                   <th>Pagamento</th>
                 </tr>
@@ -58,6 +59,7 @@
                     <td><a href="pedidos?id=<%= order.id() %>"><%= order.id() %></a></td>
                     <td><%= order.client() %></td>
                     <td><%= order.seller() %></td>
+                    <td><%= order.store() %></td>
                     <td><%= order.date() %></td>
                     <td><%= order.paymentMethod() %></td>
                   </tr>

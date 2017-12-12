@@ -20,14 +20,14 @@
   </header>
   <nav>
     <ul class="nav-list">
-      <li class="nav-item"><a href="#">Novo Pedido</a></li>
-      <li class="nav-item"><a href="#">Cliente</a></li>
-      <li class="nav-item"><a href="#">Vendedor</a></li>
-      <li class="nav-item"><a href="#">Produto</a></li>
-      <li class="nav-item"><a href="/supermercado/lojas">Loja</a></li>
-      <li class="nav-item"><a href="#">Categoria</a></li>
-      <li class="nav-item active"><a href="/supermercado/fornecedores">Fornecedor</a></li>
-      <li class="nav-item"><a href="#">Pedido</a></li>
+      <li class="nav-item"><a href="../pedido">Novo Pedido</a></li>
+      <li class="nav-item"><a href="../clientes">Cliente</a></li>
+      <li class="nav-item"><a href="../vendedores">Vendedor</a></li>
+      <li class="nav-item"><a href="../produtos">Produto</a></li>
+      <li class="nav-item"><a href="../lojas">Loja</a></li>
+      <li class="nav-item"><a href="../categorias">Categoria</a></li>
+      <li class="nav-item active"><a href="../fornecedores">Fornecedor</a></li>
+      <li class="nav-item"><a href="../pedidos">Pedido</a></li>
     </ul>
   </nav>
   <div class="content">
@@ -37,35 +37,17 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <form class="form-group" method="post">
-            <div class="col-sm-8 col-sm-offset-2 js-user-seller">
-              <label for="name">Nome:</label>
-              <input class="form-control" id="name" name="name" value="<%=provider.getName()%>"/>
-              <br>
-              <label for="address">Endereço:</label>
-              <input class="form-control" id="address" name="address" value="<%=provider.getAddress()%>"/>
-              <br>
-            </div>
-            <%-- <div class="row">
-              <div class="col-sm-3">
-                <label>Nome: </label>
-              </div>
-              <div class="col-sm-9">
-                <input class="user-input pull-right" type="text" name="name" value="<%=provider.getName()%>"/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-3">
-                <label>Endereço: </label>
-              </div>
-              <div class="col-sm-9">
-                <input class="user-input pull-right" type="text" name="address" value="<%=provider.getAddress()%>"/>
-              </div>
-            </div> --%>
+            <label for="name">Nome:</label>
+            <input class="form-control" id="name" name="name" value="<%=provider.getName()%>"/>
+            <br>
+            <label for="address">Endereço:</label>
+            <input class="form-control" id="address" name="address" value="<%=provider.getAddress()%>"/>
+            <br>
             <div class="row form-buttons">
-              <div class="col-sm-6 col-sm-offset-3">
+              <div class="col-sm-6 col-sm-offset-6">
                 <div class="row">
                   <div class="col-sm-6">
-                    <a href="${pageContext.request.contextPath }/lojas" class="form-button btn btn-warning pull-right">Cancelar</a>
+                    <a href="${pageContext.request.contextPath }/fornecedores" class="form-button btn btn-warning pull-right">Cancelar</a>
                   </div>
                   <div class="col-sm-6">
                     <input type="submit" value="Enviar" class="form-button btn btn-primary pull-right" />

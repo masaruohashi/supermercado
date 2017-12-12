@@ -22,10 +22,10 @@
       <li class="nav-item"><a href="pedido">Novo Pedido</a></li>
       <li class="nav-item"><a href="clientes">Cliente</a></li>
       <li class="nav-item active"><a href="vendedores">Vendedor</a></li>
-      <li class="nav-item"><a href="#">Produto</a></li>
-      <li class="nav-item"><a href="#">Loja</a></li>
-      <li class="nav-item"><a href="#">Categoria</a></li>
-      <li class="nav-item"><a href="#">Fornecedores</a></li>
+      <li class="nav-item"><a href="produtos">Produto</a></li>
+      <li class="nav-item"><a href="lojas">Loja</a></li>
+      <li class="nav-item"><a href="categorias">Categoria</a></li>
+      <li class="nav-item"><a href="fornecedores">Fornecedor</a></li>
       <li class="nav-item"><a href="pedidos">Pedido</a></li>
     </ul>
   </nav>
@@ -34,46 +34,38 @@
     <hr class="content-line" />
     <div class="sellers">
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 js-user-seller">
-      	  <form action="vendedores" method="POST" class="form-group">      	    
-      	    <%Seller seller = (Seller) request.getAttribute("seller"); %>
+        <div class="col-sm-6 col-sm-offset-3">
+          <form action="vendedores" method="POST" class="form-group">      	    
+            <%Seller seller = (Seller) request.getAttribute("seller"); %>
             <div class="row">
               <% if (seller == null) { %>
-              <div class="col-sm-4 col-sm-offset-2 js-user-seller">
                 <label>Nome:</label>
-                <input type="text" name="name"/>
-              </div>
-              <div class="col-sm-4 col-sm-offset-2 js-user-seller">
+                <input class="form-control" type="text" name="name"/>
+                <br>
                 <label>CPF:</label>
-                <input type="text" name="cpf"/>
-               </div>
-              <div class="col-sm-4 col-sm-offset-2 js-user-seller">
+                <input class="form-control" type="text" name="cpf"/>
                 <input class="hidden" type="text" name="operation" value="add"/>
-              </div>
               <% } else { %>
-              <div class="col-sm-4 col-sm-offset-2 js-user-seller">
                 <label>Nome:</label>
-                <input type="text" name="name" value="<%=seller.getName()%>"/>
-              </div>
-              <div class="col-sm-4 col-sm-offset-2 js-user-seller">
+                <input class="form-control" type="text" name="name" value="<%=seller.getName()%>"/>
+                <br>
                 <label>CPF:</label>
-                <input type="text" name="cpf" value="<%=seller.getCpf()%>"/>
-               </div>
-              <div class="col-sm-4 col-sm-offset-2 js-user-seller">
+                <input class="form-control" type="text" name="cpf" value="<%=seller.getCpf()%>"/>
+                <br>
                 <input class="hidden" type="text" name="id" value="<%=seller.getId()%>"/>
-              </div>
-              <div class="col-sm-4 col-sm-offset-2 js-user-seller">
                 <input class="hidden" type="text" name="operation" value="update"/>
-              </div>
               <% } %>
             </div>
             <br>
-            <div class="row">            
-              <div class="col-sm-5 col-sm-offset-7">
-                  <div class="col-sm-6 pull-right">          
-                    <input class="btn btn-primary pull-right" type="submit" value="Salvar" />
-                  </div>
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-6">
+                <div class="col-sm-6">
+                  <a class="btn btn-warning pull-right" href="vendedores">Cancelar</a>
                 </div>
+                <div class="col-sm-6">
+                  <input class="btn btn-primary pull-right" type="submit" value="Salvar" />
+                </div>
+              </div>
             </div>
           </form>
         </div>
