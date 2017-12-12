@@ -26,7 +26,7 @@ public class EditServlet extends HttpServlet {
     try {
       product.setId((Integer.parseInt(request.getParameter("id"))));
       product.setName(request.getParameter("name"));
-      product.setPrice(Double.parseDouble(request.getParameter("price")));
+      product.setPrice(Double.parseDouble(request.getParameter("price").replace(" ", "")));
       product.setCategory(CategoriesDAO.getInstance().findById(Integer.parseInt(request.getParameter("category"))));
       product.setProvider(ProvidersDAO.getInstance().findById(Integer.parseInt(request.getParameter("provider"))));
 

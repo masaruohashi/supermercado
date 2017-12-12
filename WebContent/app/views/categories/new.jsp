@@ -39,7 +39,6 @@
                     <br>
                     <div class="col-sm-12">
                         <input type="submit" value="Criar categoria" class="form-button btn btn-primary pull-right" />
-                        <a href="/categoria" class="btn btn-warning pull-center">Cancelar</a>
                     </div>
                 </div>
             </form>
@@ -67,37 +66,5 @@
 </div>
 <script>$('#messageModal').modal({show: true})</script>
 <% } %>
-<script>
-    $(document).ready(function() {
-        $(".js-select-all").click(function() {
-            if($(this).is(":checked")) {
-                $(".js-product-checkbox").prop('checked', true);
-            }
-            else {
-                $(".js-product-checkbox").prop('checked', false);
-            }
-        });
-
-        $(".js-send-user-seller").click(function() {
-            $(".js-user-seller").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-
-        $(".js-send-products").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-payment-information").removeClass("hidden");
-        });
-
-        $(".js-products-back").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-user-seller").removeClass("hidden");
-        });
-
-        $(".js-payment-back").click(function() {
-            $(".js-payment-information").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-    });
-</script>
 </body>
 </html>

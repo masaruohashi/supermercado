@@ -1,3 +1,4 @@
+<%@page import="com.supermercado.models.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page import="com.supermercado.models.Category" %>
@@ -28,7 +29,7 @@
         <li class="nav-item"><a href="#">Vendedor</a></li>
         <li class="nav-item active"><a href="/produto">Produtos</a></li>
         <li class="nav-item"><a href="#">Loja</a></li>
-        <li class="nav-item"><a href="/categoria">Categorias</a></li>
+        <li class="nav-item"><a href="/categorias">Categorias</a></li>
         <li class="nav-item"><a href="#">Fornecedores</a></li>
         <li class="nav-item"><a href="#">Pedido</a></li>
     </ul>
@@ -74,7 +75,6 @@
                     <br>
                     <div class="col-sm-12">
                         <input type="submit" value="Criar produto" class="form-button btn btn-primary pull-right" />
-                        <a href="/produto" class="btn btn-warning pull-center">Cancelar</a>
                     </div>
                 </div>
             </form>
@@ -102,37 +102,5 @@
 </div>
 <script>$('#messageModal').modal({show: true})</script>
 <% } %>
-<script>
-    $(document).ready(function() {
-        $(".js-select-all").click(function() {
-            if($(this).is(":checked")) {
-                $(".js-product-checkbox").prop('checked', true);
-            }
-            else {
-                $(".js-product-checkbox").prop('checked', false);
-            }
-        });
-
-        $(".js-send-user-seller").click(function() {
-            $(".js-user-seller").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-
-        $(".js-send-products").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-payment-information").removeClass("hidden");
-        });
-
-        $(".js-products-back").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-user-seller").removeClass("hidden");
-        });
-
-        $(".js-payment-back").click(function() {
-            $(".js-payment-information").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-    });
-</script>
 </body>
 </html>

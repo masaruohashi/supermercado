@@ -39,15 +39,17 @@
     <hr class="content-line" />
     <div class="products">
         <div class="row">
-            <% Product selected_product = (Product) request.getAttribute("selected_product"); %>
+            <% Product selectedProduct = (Product) request.getAttribute("selected_product"); %>
             <% List<Category> categories = (ArrayList<Category>) request.getAttribute("categories"); %>
             <% List<Provider> providers = (List<Provider>) request.getAttribute("providers"); %>
-            <form action="editar?id=<%=selected_product.getId()%>" method="POST" class="form-group">
+            <form action="editar" method="POST" class="form-group">
                 <div class="col-sm-8 col-sm-offset-2 js-user-seller">
+                    <input type="hidden" name="id" value="<%= selectedProduct.getId() %>" />
+                    <br>
                     <label for="category">Categoria:</label>
                     <select class="form-control" id="category" name="category">
                         <% for(Category category : categories) {
-                            if (category.getName().matches(selected_product.getCategory().getName())) {
+                            if (category.getName().matches(selectedProduct.getCategory().getName())) {
                         %>
                         <option value="<%= category.getId() %>" selected>
                             <%= category.getName() %>
@@ -64,7 +66,7 @@
                     <label for="provider">Provedor:</label>
                     <select class="form-control" id="provider" name="provider">
                         <% for(Provider provider : providers) {
-                            if (provider.getName().matches(selected_product.getProvider().getName())) {
+                            if (provider.getName().matches(selectedProduct.getProvider().getName())) {
                         %>
                         <option value="<%= provider.getId() %>" selected>
                             <%= provider.getName() %>  - <%= provider.getAddress() %>
@@ -79,14 +81,13 @@
                     </select>
                     <br>
                     <label for="name">Nome:</label>
-                    <input value="<%=selected_product.getName()%>"" class="form-control" type="text" id="name" name="name" />
+                    <input value=<%=selectedProduct.getName()%> class="form-control" type="text" id="name" name="name" />
                     <br>
                     <label for="price">Preço (R$):</label>
-                    <input value=<%=selected_product.getFormattedPrice()%> class="money form-control" type="text" id="price" name="price" />
+                    <input value=<%=selectedProduct.getFormattedPrice()%> class="form-control money" type="text" id="price" name="price" />
                     <br>
                     <div class="col-sm-12">
                         <input type="submit" value="Editar produto" class="form-button btn btn-primary pull-right" />
-                        <a href="/produto" class="btn btn-warning pull-center">Cancelar</a>
                     </div>
                 </div>
             </form>
@@ -114,37 +115,5 @@
 </div>
 <script>$('#messageModal').modal({show: true})</script>
 <% } %>
-<script>
-    $(document).ready(function() {
-        $(".js-select-all").click(function() {
-            if($(this).is(":checked")) {
-                $(".js-product-checkbox").prop('checked', true);
-            }
-            else {
-                $(".js-product-checkbox").prop('checked', false);
-            }
-        });
-
-        $(".js-send-user-seller").click(function() {
-            $(".js-user-seller").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-
-        $(".js-send-products").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-payment-information").removeClass("hidden");
-        });
-
-        $(".js-products-back").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-user-seller").removeClass("hidden");
-        });
-
-        $(".js-payment-back").click(function() {
-            $(".js-payment-information").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-    });
-</script>
 </body>
 </html>

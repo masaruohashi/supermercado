@@ -31,11 +31,8 @@
     </ul>
 </nav>
 <div class="content">
-    <span class="content-header">Produtos</span>
+    <span class="content-header">Categorias</span>
     <hr class="content-line" />
-    <div class="col-sm-12">
-        <a href="/produto/novo" class="form-button btn btn-primary pull-right">Criar produto</a>
-    </div>
     <div class="products">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 js-user-seller">
@@ -67,6 +64,9 @@
                     <br>
                     </tbody>
                 </table>
+                <div class="col-sm-12">
+                    <a href="/produto/novo" class="form-button btn btn-primary pull-right">Criar produto</a>
+                </div>
             </div>
         </div>
     </div>
@@ -92,37 +92,5 @@
 </div>
 <script>$('#messageModal').modal({show: true})</script>
 <% } %>
-<script>
-    $(document).ready(function() {
-        $(".js-select-all").click(function() {
-            if($(this).is(":checked")) {
-                $(".js-product-checkbox").prop('checked', true);
-            }
-            else {
-                $(".js-product-checkbox").prop('checked', false);
-            }
-        });
-
-        $(".js-send-user-seller").click(function() {
-            $(".js-user-seller").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-
-        $(".js-send-products").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-payment-information").removeClass("hidden");
-        });
-
-        $(".js-products-back").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-user-seller").removeClass("hidden");
-        });
-
-        $(".js-payment-back").click(function() {
-            $(".js-payment-information").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-    });
-</script>
 </body>
 </html>

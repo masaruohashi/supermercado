@@ -19,13 +19,13 @@
 <nav>
     <ul class="nav-list">
         <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
-        <li class="nav-item"><a href="#">Cliente</a></li>
-        <li class="nav-item"><a href="#">Vendedor</a></li>
+        <li class="nav-item"><a href="/cliente">Cliente</a></li>
+        <li class="nav-item"><a href="/vendedor">Vendedor</a></li>
         <li class="nav-item"><a href="/produto">Produtos</a></li>
-        <li class="nav-item"><a href="#">Loja</a></li>
+        <li class="nav-item"><a href="/loja">Loja</a></li>
         <li class="nav-item active"><a href="/categoria">Categorias</a></li>
-        <li class="nav-item"><a href="#">Fornecedores</a></li>
-        <li class="nav-item"><a href="#">Pedido</a></li>
+        <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
+        <li class="nav-item"><a href="/pedido">Pedido</a></li>
     </ul>
 </nav>
 <div class="content">
@@ -33,15 +33,16 @@
     <hr class="content-line" />
     <div class="products">
         <div class="row">
-            <% Category selected_category = (Category) request.getAttribute("selected_category"); %>
-            <form action="editar?id=<%=selected_category.getId()%>" method="POST" class="form-group">
+            <% Category selectedCategory = (Category) request.getAttribute("selected_category"); %>
+            <form action="editar" method="POST" class="form-group">
                 <div class="col-sm-8 col-sm-offset-2 js-user-seller">
+                    <input type="hidden" name="id" value="<%= selectedCategory.getId() %>" />
+                    <br>
                     <label for="name">Nome:</label>
-                    <input value="<%=selected_category.getName()%>"" class="form-control" type="text" id="name" name="name" />
+                    <input value=<%=selectedCategory.getName()%> class="form-control" type="text" id="name" name="name" />
                     <br>
                     <div class="col-sm-12">
                         <input type="submit" value="Editar categoria" class="form-button btn btn-primary pull-right" />
-                        <a href="/categoria" class="btn btn-warning pull-center">Cancelar</a>
                     </div>
                 </div>
             </form>
@@ -69,37 +70,5 @@
 </div>
 <script>$('#messageModal').modal({show: true})</script>
 <% } %>
-<script>
-    $(document).ready(function() {
-        $(".js-select-all").click(function() {
-            if($(this).is(":checked")) {
-                $(".js-product-checkbox").prop('checked', true);
-            }
-            else {
-                $(".js-product-checkbox").prop('checked', false);
-            }
-        });
-
-        $(".js-send-user-seller").click(function() {
-            $(".js-user-seller").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-
-        $(".js-send-products").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-payment-information").removeClass("hidden");
-        });
-
-        $(".js-products-back").click(function() {
-            $(".js-products").addClass("hidden");
-            $(".js-user-seller").removeClass("hidden");
-        });
-
-        $(".js-payment-back").click(function() {
-            $(".js-payment-information").addClass("hidden");
-            $(".js-products").removeClass("hidden");
-        });
-    });
-</script>
 </body>
 </html>
