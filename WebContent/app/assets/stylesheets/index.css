@@ -99,6 +99,10 @@ nav {
 	margin: 0 20%;
 }
 
+.table-button:hover{
+	text-decoration: none;
+}
+
 @media only screen and (max-width: 1600px) {
   nav {
     padding: 2% 10%;
