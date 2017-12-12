@@ -25,13 +25,13 @@
 <nav>
     <ul class="nav-list">
         <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
-        <li class="nav-item"><a href="#">Cliente</a></li>
-        <li class="nav-item"><a href="#">Vendedor</a></li>
+        <li class="nav-item"><a href="/clientes">Cliente</a></li>
+        <li class="nav-item"><a href="#/vendedores">Vendedor</a></li>
         <li class="nav-item active"><a href="/produto">Produtos</a></li>
-        <li class="nav-item"><a href="#">Loja</a></li>
-        <li class="nav-item"><a href="/categorias">Categorias</a></li>
-        <li class="nav-item"><a href="#">Fornecedores</a></li>
-        <li class="nav-item"><a href="#">Pedido</a></li>
+        <li class="nav-item"><a href="/lojas">Loja</a></li>
+        <li class="nav-item"><a href="/categoria">Categorias</a></li>
+        <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
+        <li class="nav-item"><a href="/pedido">Pedido</a></li>
     </ul>
 </nav>
 <div class="content">

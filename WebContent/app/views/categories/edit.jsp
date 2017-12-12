@@ -19,10 +19,10 @@
 <nav>
     <ul class="nav-list">
         <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
-        <li class="nav-item"><a href="/cliente">Cliente</a></li>
-        <li class="nav-item"><a href="/vendedor">Vendedor</a></li>
+        <li class="nav-item"><a href="/clientes">Cliente</a></li>
+        <li class="nav-item"><a href="/vendedores">Vendedor</a></li>
         <li class="nav-item"><a href="/produto">Produtos</a></li>
-        <li class="nav-item"><a href="/loja">Loja</a></li>
+        <li class="nav-item"><a href="/lojas">Loja</a></li>
         <li class="nav-item active"><a href="/categoria">Categorias</a></li>
         <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
         <li class="nav-item"><a href="/pedido">Pedido</a></li>
