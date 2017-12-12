@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.supermercado.dao.OrdersDAO;
+import com.supermercado.dao.SellersDAO;
 import com.supermercado.decorators.OrderDecorator;
 import com.supermercado.models.Order;
+import com.supermercado.models.Seller;
 
 @WebServlet("/pedidos")
 public class ShowServlet extends HttpServlet {
@@ -25,7 +27,6 @@ public class ShowServlet extends HttpServlet {
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String orderId = request.getParameter("id");
-    System.out.println(orderId);
     if(orderId != null) {
       showOrder(request, response);
     } else {
@@ -38,11 +39,21 @@ public class ShowServlet extends HttpServlet {
   }
 
   private void listOrders(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    Integer minimumPrice = null;
+    Integer sellerId = null;
+    if(request.getParameter("minimum_price") != null) {
+      minimumPrice = Integer.parseInt(request.getParameter("minimum_price"));
+    }
+    if(request.getParameter("seller_id") != null && request.getParameter("seller_id") != "") {
+      sellerId = Integer.parseInt(request.getParameter("seller_id"));
+    }
+    List<Seller> sellers = SellersDAO.getInstance().getAll();
     List<OrderDecorator> orders = new ArrayList<OrderDecorator>();
-    for(Order order : OrdersDAO.getInstance().findAll()) {
+    for(Order order : OrdersDAO.getInstance().findWithFilters(sellerId, minimumPrice)) {
       orders.add(new OrderDecorator(order));
     }
     request.setAttribute("orders", orders);
+    request.setAttribute("sellers", sellers);
     RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/orders/list.jsp");
     requestDispatcher.forward(request, response);
   }

@@ -14,6 +14,15 @@ public class Order {
   private Seller seller;
   private Store store;
   private List<OrderItem> items;
+  private double totalPrice;
+
+  public double getTotalPrice() {
+    return totalPrice;
+  }
+
+  public void setTotalPrice(double totalPrice) {
+    this.totalPrice = totalPrice;
+  }
 
   public Order() {
     items = new ArrayList<OrderItem>();
