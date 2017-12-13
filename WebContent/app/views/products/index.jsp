@@ -27,7 +27,7 @@
           <li class="nav-item"><a href="lojas">Loja</a></li>
           <li class="nav-item"><a href="categorias">Categoria</a></li>
           <li class="nav-item"><a href="fornecedores">Fornecedor</a></li>
-          <li class="nav-item"><a href="pedido">Pedido</a></li>
+          <li class="nav-item"><a href="pedidos">Pedido</a></li>
       </ul>
   </nav>
   <div class="content">
