@@ -23,13 +23,9 @@ public class IndexServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     List<Product> products = new ArrayList<Product>();
 
-    try {
-      products = ProductsDAO.getInstance().getAll();
-      request.setAttribute("products", products);
-      RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/products/index.jsp");
-      requestDispatcher.forward(request, response);
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
+    products = ProductsDAO.getInstance().getAll();
+    request.setAttribute("products", products);
+    RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/app/views/products/index.jsp");
+    requestDispatcher.forward(request, response);
   }
 }
