@@ -23,20 +23,22 @@
         <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
         <li class="nav-item"><a href="/clientes">Cliente</a></li>
         <li class="nav-item"><a href="/vendedores">Vendedor</a></li>
-        <li class="nav-item active"><a href="/produtos">Produtos</a></li>
+        <li class="nav-item active"><a href="/produtos">Produto</a></li>
         <li class="nav-item"><a href="/lojas">Loja</a></li>
-        <li class="nav-item"><a href="/categorias">Categorias</a></li>
-        <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
+        <li class="nav-item"><a href="/categorias">Categoria</a></li>
+        <li class="nav-item"><a href="/fornecedores">Fornecedor</a></li>
         <li class="nav-item"><a href="/pedido">Pedido</a></li>
     </ul>
 </nav>
 <div class="content">
-    <span class="content-header">Produtos</span>
-    <div class="col-sm-2">
-        <a class="btn btn-primary pull-right add-button" href="/produtos/novo">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            <span>Adicionar</span>
-        </a>
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="content-header">Listagem de Produtos</span>
+            <a class="btn btn-primary pull-right add-button" href="/produtos/novo">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                <span>Adicionar</span>
+            </a>
+        </div>
     </div>
     <hr class="content-line" />
     <div class="products">
