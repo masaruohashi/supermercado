@@ -106,3 +106,4 @@ public class ProvidersDAO extends BaseDAO {
     }
     return false;
   }
+}

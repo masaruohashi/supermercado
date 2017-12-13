@@ -18,14 +18,14 @@
 </header>
 <nav>
     <ul class="nav-list">
-        <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
-        <li class="nav-item"><a href="/clientes">Cliente</a></li>
-        <li class="nav-item"><a href="/vendedores">Vendedor</a></li>
-        <li class="nav-item"><a href="/produtos">Produtos</a></li>
-        <li class="nav-item"><a href="/lojas">Loja</a></li>
-        <li class="nav-item active"><a href="/categorias">Categorias</a></li>
-        <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
-        <li class="nav-item"><a href="/pedido">Pedido</a></li>
+        <li class="nav-item"><a href="../pedido">Novo Pedido</a></li>
+        <li class="nav-item"><a href="../clientes">Cliente</a></li>
+        <li class="nav-item"><a href="../vendedores">Vendedor</a></li>
+        <li class="nav-item"><a href="../produtos">Produto</a></li>
+        <li class="nav-item"><a href="../lojas">Loja</a></li>
+        <li class="nav-item active"><a href="../categorias">Categoria</a></li>
+        <li class="nav-item"><a href="../fornecedores">Fornecedor</a></li>
+        <li class="nav-item"><a href="../pedidos">Pedido</a></li>
     </ul>
 </nav>
 <div class="content">
@@ -36,21 +36,19 @@
             <% Category selectedCategory = (Category) request.getAttribute("selected_category"); %>
             <div class="col-sm-6 col-sm-offset-3">
                 <form action="editar" method="POST" class="form-group">
-                    <div class="col-sm-8 col-sm-offset-2 js-user-seller">
-                        <input type="hidden" name="id" value="<%= selectedCategory.getId() %>" />
-                        <br>
-                        <label for="name">Nome:</label>
-                        <input value=<%=selectedCategory.getName()%> class="form-control" type="text" id="name" name="name" />
-                        <br>
-                        <div class="row form-buttons">
-                            <div class="col-sm-6 col-sm-offset-6">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <a href="/categorias" class="form-button btn btn-warning pull-right">Cancelar</a>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="submit" value="Enviar" class="form-button btn btn-primary pull-right" />
-                                    </div>
+                    <input type="hidden" name="id" value="<%= selectedCategory.getId() %>" />
+                    <br>
+                    <label for="name">Nome:</label>
+                    <input value=<%=selectedCategory.getName()%> class="form-control" type="text" id="name" name="name" />
+                    <br>
+                    <div class="row form-buttons">
+                        <div class="col-sm-6 col-sm-offset-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="../categorias" class="form-button btn btn-warning pull-right">Cancelar</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="submit" value="Enviar" class="form-button btn btn-primary pull-right" />
                                 </div>
                             </div>
                         </div>

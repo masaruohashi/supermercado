@@ -55,7 +55,8 @@ public class OrdersDAO extends BaseDAO{
                  "AND order_items.order_id = orders.id " +
                  "AND orders.seller_id = " + getSellerId(sellerId) + " " +
                  "GROUP BY order_items.order_id " +
-                 "HAVING total_price >= " + getMinimumPrice(minimumPrice);
+                 "HAVING total_price >= " + getMinimumPrice(minimumPrice) + " " +
+                 "ORDER BY orders.id DESC";
     try {
       orders = new ArrayList<Order>();
       PreparedStatement statement = this.connection.prepareStatement(sql);

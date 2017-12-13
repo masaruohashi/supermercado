@@ -24,14 +24,14 @@
 </header>
 <nav>
     <ul class="nav-list">
-        <li class="nav-item"><a href="/pedido">Novo Pedido</a></li>
-        <li class="nav-item"><a href="/clientes">Cliente</a></li>
-        <li class="nav-item"><a href="#/vendedores">Vendedor</a></li>
-        <li class="nav-item active"><a href="/produtos">Produtos</a></li>
-        <li class="nav-item"><a href="/lojas">Loja</a></li>
-        <li class="nav-item"><a href="/categorias">Categorias</a></li>
-        <li class="nav-item"><a href="/fornecedores">Fornecedores</a></li>
-        <li class="nav-item"><a href="/pedido">Pedido</a></li>
+        <li class="nav-item"><a href="../pedido">Novo Pedido</a></li>
+        <li class="nav-item"><a href="../clientes">Cliente</a></li>
+        <li class="nav-item"><a href="../vendedores">Vendedor</a></li>
+        <li class="nav-item active"><a href="../produtos">Produto</a></li>
+        <li class="nav-item"><a href="../lojas">Loja</a></li>
+        <li class="nav-item"><a href="../categorias">Categoria</a></li>
+        <li class="nav-item"><a href="../fornecedores">Fornecedor</a></li>
+        <li class="nav-item"><a href="../pedido">Pedido</a></li>
     </ul>
 </nav>
 <div class="content">
@@ -40,7 +40,7 @@
     <div class="products">
         <div class="row">
             <form action="novo" method="POST" class="form-group">
-                <div class="col-sm-8 col-sm-offset-2 js-user-seller">
+                <div class="col-sm-6 col-sm-offset-3 js-user-seller">
                     <% List<Category> categories = (ArrayList<Category>) request.getAttribute("categories"); %>
                     <% List<Provider> providers = (List<Provider>) request.getAttribute("providers"); %>
                     <% if(categories.isEmpty() || providers.isEmpty()) { %>
@@ -48,6 +48,9 @@
                         <span>Não existem categorias ou provedores cadastrados!</span>
                     </div>
                     <% } else { %>
+                    <label for="name">Nome:</label>
+                    <input class="form-control" type="text" id="name" name="name" />
+                    <br>
                     <label for="category">Categoria:</label>
                     <select class="form-control" id="category" name="category">
                         <% for(Category category : categories) { %>
@@ -57,7 +60,7 @@
                         <% } %>
                     </select>
                     <br>
-                    <label for="provider">Provedor:</label>
+                    <label for="provider">Fornecedor:</label>
                     <select class="form-control" id="provider" name="provider">
                         <% for(Provider provider : providers) { %>
                         <option value="<%= provider.getId() %>">
@@ -65,9 +68,6 @@
                         </option>
                         <% } %>
                     </select>
-                    <br>
-                    <label for="name">Nome:</label>
-                    <input class="form-control" type="text" id="name" name="name" />
                     <br>
                     <label for="price">Preço (R$):</label>
                     <input class="form-control money" type="text" id="price" name="price" />
@@ -77,7 +77,7 @@
                         <div class="col-sm-6 col-sm-offset-6">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <a href="/produtos" class="form-button btn btn-warning pull-right">Cancelar</a>
+                                    <a href="../produtos" class="form-button btn btn-warning pull-right">Cancelar</a>
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="submit" value="Salvar" class="form-button btn btn-primary pull-right" />
