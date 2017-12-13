@@ -48,7 +48,7 @@
             <form class="form-group" action="pedidos" method="GET">
               <div class="col-sm-10 col-sm-offset-1">
                   <div class="col-sm-5">
-                    <label for="seller_id">Cliente:</label>
+                    <label for="seller_id">Vendedor:</label>
                     <select class="form-control" id="seller_id" name="seller_id">
                       <option value="">Selecione</option>
                       <% for(Seller seller : sellers) { %>
