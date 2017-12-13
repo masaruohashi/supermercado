@@ -19,7 +19,7 @@ public class ProductsDAO extends BaseDAO{
     return new ProductsDAO();
   }
 
-  public List<Product> getAll() throws SQLException {
+  public List<Product> getAll() {
     List<Product> products = new ArrayList<Product>();
     try {
       String sql = "SELECT products.*, categories.name AS category, providers.name AS provider, providers.address FROM products INNER JOIN categories ON products.category_id = categories.id INNER JOIN providers ON products.provider_id = providers.id ORDER BY products.name";
@@ -49,7 +49,7 @@ public class ProductsDAO extends BaseDAO{
     return products;
   }
 
-  public Product findById(int id) throws SQLException {
+  public Product findById(int id) {
     Product product = null;
     try {
       String sql = "SELECT products.*, categories.name AS category FROM products " +

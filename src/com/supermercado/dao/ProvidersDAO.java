@@ -12,11 +12,11 @@ public class ProvidersDAO extends BaseDAO {
   public ProvidersDAO() {
     super();
   }
-
+  
   public static ProvidersDAO getInstance() {
     return new ProvidersDAO();
   }
-
+  
   public List<Provider> getAll() {
     List<Provider> providers = new ArrayList<Provider>();
     try {
@@ -62,7 +62,7 @@ public class ProvidersDAO extends BaseDAO {
   public boolean create(Provider provider) {
     try {
       String sql = "INSERT INTO providers (name, address) " +
-              "VALUES (?, ?)";
+                   "VALUES (?, ?)";
       PreparedStatement statement = this.connection.prepareStatement(sql);
       statement.setString(1, provider.getName());
       statement.setString(2, provider.getAddress());
@@ -74,7 +74,7 @@ public class ProvidersDAO extends BaseDAO {
     }
     return false;
   }
-
+  
   public boolean delete(int id) {
     try {
       String sql = "DELETE FROM providers WHERE id = ?";
@@ -88,12 +88,12 @@ public class ProvidersDAO extends BaseDAO {
     }
     return false;
   }
-
+  
   public boolean update(Provider provider) {
     try {
       String sql = "UPDATE providers " +
-              "SET name = ?, address = ? " +
-              "WHERE id = ?";
+                   "SET name = ?, address = ? " +
+                   "WHERE id = ?";
       PreparedStatement statement = this.connection.prepareStatement(sql);
       statement.setString(1, provider.getName());
       statement.setString(2, provider.getAddress());
@@ -106,4 +106,3 @@ public class ProvidersDAO extends BaseDAO {
     }
     return false;
   }
-}
