@@ -95,6 +95,14 @@
     <servlet-name>NewServlet</servlet-name>
     <servlet-class>com.supermercado.servlets.orders.NewServlet</servlet-class>
   </servlet>
+    <servlet>
+        <servlet-name>CategoryServlet</servlet-name>
+        <servlet-class>com.supermercado.servlets.categories.CategoryServlet</servlet-class>
+    </servlet>
+  <servlet>
+    <servlet-name>ProductServlet</servlet-name>
+    <servlet-class>com.supermercado.servlets.products.ProductServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>NewServlet</servlet-name>
     <url-pattern>/NewServlet</url-pattern>
