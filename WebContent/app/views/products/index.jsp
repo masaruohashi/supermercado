@@ -63,7 +63,7 @@
                           <td>R$<%= product.getFormattedPrice() %></td>
                           <td><%= product.getCategory().getName() %></td>
                           <td><%= product.getProvider().getName() %></td>
-                          <td>
+                          <td class="text-center">
                               <a href="produtos/editar?id=<%=product.getId() %>" class="table-button">
                                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                               </a>

@@ -56,7 +56,7 @@
               <tr>
                 <td><%= provider.getName() %></td>
                 <td><%= provider.getAddress() %></td>
-                <td>
+                <td class="text-center">
                   <a href="fornecedores/editar?id=<%=provider.getId() %>" class="table-button">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                   </a>

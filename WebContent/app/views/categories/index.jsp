@@ -57,7 +57,7 @@
             <% for(Category category: categories) { %>
             <tr>
               <td><%= category.getName() %></td>
-              <td text-center>
+              <td class="text-center">
                 <a href="categorias/editar?id=<%=category.getId() %>" class="table-button">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
